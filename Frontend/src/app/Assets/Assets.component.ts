@@ -15,10 +15,10 @@ export class AssetsComponent implements OnInit {
   ngOnInit() {
     this.dataService.fetchData().subscribe(data => {
       // Handle the fetched data here
-      console.log(data);
       this.leasingAssets = data;
     });
   }
+
 
   navigateToContract(assetId: number) {
     this.router.navigate(['/contracts', assetId]);

@@ -7,6 +7,7 @@ const cors = require("cors");
 const app = express(); // Create an instance of the express application
 
 app.use(cors()); // Enable CORS policy for all routes
+app.use(express.json()); // Middleware to parse JSON request bodies
 
 // Set up the connection to the MySQL database
 
@@ -29,6 +30,47 @@ connection.connect((err) => {
 });
  */
 // Define a route to retrieve data from the database
+
+app.post('/get_contract', (req, res) => {
+  const { id } = req.body; // Extract id from the request body
+  if (!id) {
+    return res.status(400).json({ error: 'Contract ID is required' });
+  }
+
+  console.log("Contract ID is " + id);
+
+  // Use contract ID, to get the contract details
+  //const query = 'SELECT * FROM contracts WHERE id = ?'; // Adjust the query according to your table structure
+  /* connection.query(query, [id], (err, results) => {
+    if (err) {
+      console.error('Error fetching contract data:', err);
+      return res.status(500).json({ error: 'Failed to fetch contract data' });
+    }
+
+    if (results.length === 0) {
+      return res.status(404).json({ error: 'Contract not found' });
+    }
+
+    res.json(results[0]);
+  }); */
+
+  contract_example = {
+    typ: 'Leasing',
+    leasingobjektgesellschaft: 'Pandabuy',
+    kundenId: '2',
+    mietbeginn: '01.01.2020',
+    laufzeit: '36 Monate',
+    mietende: '31.12.2022',
+    zahlungsrhytmus: 'Monatlich',
+    gesamtinvestition: '10000€',
+    lastschrifteinzug: 'Ja',
+    assetId: id,
+
+  };
+
+  res.json(contract_example);
+});
+
 
 app.get("/get_assets", (req, res) => {
   console.log("Made connection to /assets (Server)");

@@ -9,7 +9,7 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  fetchData(): Observable<any> {
-    return this.http.get<any[]>(`http://localhost:3002/get_assets`);
+  getContractData(id: number): Observable<any> {
+    return this.http.post<any>('http://localhost:3002/get_contract', { id });
   }
 }
