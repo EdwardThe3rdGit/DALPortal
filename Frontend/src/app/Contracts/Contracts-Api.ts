@@ -6,10 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
+  fetchAssets(): Observable<any[]> {
+    return this.http.get<any[]>('http://localhost:3002/get_assets');
+  }
 
-  getContractData(id: number): Observable<any> {
+  getContractData(id: string): Observable<any> {
     return this.http.post<any>('http://localhost:3002/get_contract', { id });
   }
 }

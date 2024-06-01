@@ -1,54 +1,20 @@
-<!-- Contracts.component.html -->
-
-<div class="container">
-    <h1 class="title assets-title">Vertragsdaten</h1>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card mb-4">
-          <div class="card-body">
-            <div class="d-flex mb-2">
-              <strong class="label">Typ:</strong>
-              <p class="mb-0 value">{{ contract.typ }}</p>
-            </div>
-            <div class="d-flex mb-2">
-                <strong class="label">Leasingobjektgesellschaft:</strong>
-                <p class="mb-0 value">{{ contract.leasingobjektgesellschaft }}</p>
-              </div>
-            <div class="d-flex mb-2">
-             <strong class="label">Leasingnehmer:</strong>
-             <p class="mb-0 value">{{ contract.kundenId }}</p>
-            </div>
-            <div class="d-flex mb-2">
-              <strong class="label">Mietbeginn:</strong>
-              <p class="mb-0 value">{{ contract.mietbeginn }}</p>
-            </div>
-            <div class="d-flex mb-2">
-              <strong class="label">Laufzeit:</strong>
-              <p class="mb-0 value">{{ contract.laufzeit }}</p>
-            </div>
-            <div class="d-flex mb-2">
-              <strong class="label">Mietende:</strong>
-              <p class="mb-0 value">{{ contract.mietende }}</p>
-            </div>
-            <div class="d-flex mb-2">
-              <strong class="label">Zahlungsrhytmus:</strong>
-              <p class="mb-0 value">{{ contract.zahlungsrhytmus }}</p>
-            </div>
-            <div class="d-flex mb-2">
-              <strong class="label">Gesamtinvestition:</strong>
-              <p class="mb-0 value">{{ contract.gesamtinvestition }}</p>
-            </div>
-            <div class="d-flex mb-2">
-              <strong class="label">Lastschrifteinzug:</strong>
-              <p class="mb-0 value">{{ contract.lastschrifteinzug }}</p>
-            </div>
-            <div class="d-flex mb-2">
-              <strong class="label">Asset-ID:</strong>
-              <p class="mb-0 value">{{ contract.assetId }}</p>
-            </div>
-          </div>
-        </div>
+<div class="row" *ngIf="contracts.length > 0; else noContracts">
+  <div class="col-md-12" *ngFor="let contract of contracts">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Contract ID: {{ contract.contractId }}</h5>
+        <p class="card-text">Vertragsabschlussdatum: {{ contract.vertragsabschlussdatum }}</p>
+        <p class="card-text">Mietbeginn: {{ contract.mietbeginn }}</p>
+        <p class="card-text">Endabrechnung: {{ contract.endabrechnung }}</p>
+        <p class="card-text">Zinskonversion: {{ contract.zinskonversion }}</p>
+        <p class="card-text">Laufzeit: {{ contract.laufzeit }}</p>
+        <p class="card-text">GIK: {{ contract.gik }}</p>
+        <p class="card-text">Abschlussgebühr: {{ contract.abschlussgebuehr }}</p>
       </div>
     </div>
   </div>
-  
+</div>
+
+<ng-template #noContracts>
+  <p>No contracts found.</p>
+</ng-template>
