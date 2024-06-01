@@ -9,7 +9,7 @@ import { AccountComponent } from './Account/Account.component';
 import { CommonModule } from '@angular/common';
 import { AssetsComponent } from './Assets/Assets.component';
 import { MessagesComponent } from './Messages/Messages.component';
-import { CookiePopupComponent } from './CookiePopup/CookiePopup.component';
+import { ContractsComponent } from './Contracts/Contracts.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { CookiePopupComponent } from './CookiePopup/CookiePopup.component';
     AccountComponent,
     MessagesComponent,
     AssetsComponent,
-    CookiePopupComponent,
+    ContractsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, CommonModule, HttpClientModule],
   providers: [],
