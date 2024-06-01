@@ -5,7 +5,7 @@ import { LoginComponent } from './Login/Login.component';
 import { MessagesComponent } from './Messages/Messages.component';
 import { AssetsComponent } from './Assets/Assets.component';
 import { AuthGuard } from '../app/auth.guard';
-import { CookiePopupComponent } from './CookiePopup/CookiePopup.component';
+import { ContractsComponent } from './Contracts/Contracts.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -27,9 +27,9 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'cookiePopup',
-    component: CookiePopupComponent,
-  },
+    path: 'contracts/:id',
+    component: ContractsComponent,
+  }
 ];
 
 @NgModule({

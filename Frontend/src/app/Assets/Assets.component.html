@@ -2,8 +2,8 @@
   <h1 class="title assets-title">Assets</h1>
   <div class="row">
     <div class="col-md-4" *ngFor="let asset of leasingAssets">
-      <div class="card mb-4">
-        <div class="card-body">
+      <div class="card mb-4" (click)="navigateToContract(asset.id)">
+        <div class="card-body" >
           <div class="d-flex mb-2">
             <strong class="label">Standort:</strong>
             <p class="mb-0 value">{{ asset.standort }}</p>

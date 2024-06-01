@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-Assets',
@@ -51,7 +52,9 @@ export class AssetsComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
+
+  navigateToContract(assetId: number) {this.router.navigate(['/contracts', assetId])}
 }
