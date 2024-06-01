@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataService } from './Assets-Api';
 
 @Component({
@@ -6,19 +7,20 @@ import { DataService } from './Assets-Api';
   templateUrl: './Assets.component.html',
   styleUrls: ['./Assets.component.scss'],
 })
-
 export class AssetsComponent implements OnInit {
   leasingAssets: any[] = []; // Define an empty array to hold the fetched data
 
-
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private router: Router) { }
 
   ngOnInit() {
-    console.log("Fetching assets");
     this.dataService.fetchData().subscribe(data => {
       // Handle the fetched data here
       console.log(data);
+      this.leasingAssets = data;
     });
   }
-  
+
+  navigateToContract(assetId: number) {
+    this.router.navigate(['/contracts', assetId]);
+  }
 }

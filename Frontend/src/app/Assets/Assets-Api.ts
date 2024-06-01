@@ -11,6 +11,7 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   fetchData(): Observable<any> {
-    return from (fetch('http://localhost:3000/api'));
+    return this.http.get<any[]>(`http://localhost:3002/get_assets`);
+    //return from (fetch('http://localhost:3001/get_assets'));
   }
 }

@@ -10,7 +10,7 @@ app.use(cors()); // Enable CORS policy for all routes
 
 // Set up the connection to the MySQL database
 
-const connection = mysql.createConnection({
+/* const connection = mysql.createConnection({
   host: "localhost",
 
   user: "yourUsername", // Replace with your MySQL username
@@ -25,12 +25,12 @@ const connection = mysql.createConnection({
 connection.connect((err) => {
   if (err) throw err;
 
-  console.log("Connected to the MySQL server."); // Confirmation message
+  //console.log("Connected to the MySQL server."); // Confirmation message
 });
-
+ */
 // Define a route to retrieve data from the database
 
-app.get("/api", (req, res) => {
+app.get("/get_assets", (req, res) => {
   console.log("Made connection to /assets (Server)");
   leasingAssets = [
     {
@@ -75,6 +75,20 @@ app.get("/api", (req, res) => {
       leasinggeber: 'Company D',
       leasingnehmer: 'Emily Davis',
     },
+    {
+      id: 8,
+      standort: 'Hamburg',
+      leasingobjekt: 'Machinery',
+      leasinggeber: 'Company C',
+      leasingnehmer: 'Mike Johnson',
+    },
+    {
+      id: 7,
+      standort: 'Frankfurt',
+      leasingobjekt: 'IT Equipment',
+      leasinggeber: 'Company D',
+      leasingnehmer: 'Emily Davis',
+    },
   ];
 
   res.json(leasingAssets);
@@ -82,7 +96,7 @@ app.get("/api", (req, res) => {
 
 // Start the server on port 3000
 
-const port = 3000;
+const port = 3002;
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
