@@ -1,48 +1,107 @@
-// Contracts.component.scss
-
 .container {
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    background-color: #f7f7f7;
-    margin: 20px auto;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .row {
-    display: flex;
-    margin-bottom: 15px;
-  }
-  
-  .col {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .label {
-    font-weight: bold;
-    margin-right: 10px;
-    min-width: 120px;
-  }
-  
-  .value {
-    white-space: pre-wrap;
-    flex: 1 1 auto;
-    text-align: right;
-  }
-  
-  .assets-title {
-    text-align: center;
-  }
-  
-  .card {
-    border-radius: 20px;
-    box-shadow: 0;
-  }
-  
-  .card-body .d-flex {
-    display: flex;
-    justify-content: space-between;
-  }
-  
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: #f7f7f7;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.row {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.col-md-4 {
+  display: flex;
+  flex-direction: column;
+}
+
+.fontBold {
+  font-weight: bold;
+}
+
+.label {
+  font-weight: bold;
+  margin-right: 10px;
+  min-width: 130px;
+}
+
+.value {
+  white-space: nowrap;
+  text-align: right;
+  flex-grow: 1;
+}
+
+.assets-title {
+  text-align: center;
+}
+
+.card {
+  border-radius: 20px;
+  box-shadow: 0;
+  cursor: pointer;
+}
+
+.card-body .d-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.image-container img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ensure space between buttons */
+  margin-bottom: 5px; /* Reduce bottom margin */
+  height: 25px; /* Adjust button height */
+}
+
+.button-container .btn:first-child {
+  margin-right: auto; /* Push first button to the far left */
+}
+
+.button-container .btn:last-child {
+  margin-left: auto; /* Push last button to the far right */
+}
+
+.align-right {
+  display: flex;
+  justify-content: flex-end; /* Align children to the right */
+}
+
+
+.link-prop {
+  text-decoration: underline;
+  color: blue;
+}
+
+.full {
+  width: 100%;
+}
+
+.button-container .btn .fa-floppy-disk, 
+.button-container .btn .fa-envelope {
+  font-size: 1.5em; /* Adjust size as needed */
+  color: #ee0000 ; /* Adjust color as needed */
+}
+
+.button-container .btn:hover .fa-floppy-disk, 
+.button-container .btn:hover .fa-envelope{
+  color: #9e0000; /* Adjust hover color as needed */
+}

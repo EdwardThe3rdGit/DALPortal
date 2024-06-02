@@ -443,6 +443,87 @@ function getContract(id) {
   }
 }
 
+const leasingAssets = [
+  {
+    id: 5472,
+    objektartBezeichnung: 'Parkhaus',
+    strasse: 'Froschgasse 93',
+    plz: '58912',
+    ort: 'Bierstadt',
+    zustand: 'Neubau',
+    objekterrichtung: 'Sale and lease back',
+    grundstuecksart: 'Kauf',
+    untermieter: 'Nein',
+    imageUrl: 'https://media.gettyimages.com/id/128502214/de/foto/classic-turn-of-the-century-american-house.jpg?s=612x612&w=gi&k=20&c=d4GVWJ7ehp10xUREyj0787VvZ1Aedxts9ZNSMiuL0_Y=',
+    vertraege: getContract(1),
+  },
+  {
+    id: 6160,
+    objektartBezeichnung: 'Lagerhalle',
+    strasse: 'Weingasse 11',
+    plz: '58911',
+    ort: 'Hasstadt',
+    zustand: 'Neubau',
+    objekterrichtung: 'Projektmanagement',
+    grundstuecksart: 'Erbbaurecht',
+    untermieter: 'Nein',
+    imageUrl: 'https://www.wilsonhomes.com.au/sites/default/files/styles/blog_hero_banner/public/My%20project%20-%202023-06-20T095818.329%20%281%29_0.jpg?itok=UbtVbhT0',
+    vertraege: getContract(2),
+  },
+  {
+    id: 7845,
+    objektartBezeichnung: 'Lagerhalle',
+    strasse: 'Froschgasse 78',
+    plz: '58912',
+    ort: 'Bierstadt',
+    zustand: 'Neubau',
+    objekterrichtung: 'Sale and lease back',
+    grundstuecksart: 'Kauf',
+    untermieter: 'Ja',
+    imageUrl: 'https://cdna.artstation.com/p/assets/images/images/045/535/208/large/eugene-caubel-haussmann-concept.jpg?1642963048',
+    vertraege: getContract(3),
+  },
+  {
+    id: 9017,
+    objektartBezeichnung: 'Lagerhalle',
+    strasse: 'Weingasse 11',
+    plz: '58911',
+    ort: 'Hasstadt',
+    zustand: 'Neubau',
+    objekterrichtung: 'Projektmanagement',
+    grundstuecksart: 'Erbbaurecht',
+    untermieter: 'Nein',
+    imageUrl: 'https://butterflymx.com/wp-content/uploads/2022/07/asset-management-vs-property-management.jpg',
+    vertraege: getContract(4),
+  },
+  {
+    id: 8542,
+    objektartBezeichnung: 'Produktionsgebäude',
+    strasse: 'Froschgasse 85',
+    plz: '58912',
+    ort: 'Bierstadt',
+    zustand: 'Neubau',
+    objekterrichtung: 'Sale and lease back',
+    grundstuecksart: 'Kauf',
+    untermieter: 'Ja',
+    imageUrl: 'https://d1y8sb8igg2f8e.cloudfront.net/images/Hey_Congress_No_Time_to_Leave_the_Dance_Floor_.width-600.jpg',
+    vertraege: getContract(5),
+  },
+  {
+    id: 5509,
+    objektartBezeichnung: 'Sondergebäude',
+    strasse: 'Weingasse 13',
+    plz: '58911',
+    ort: 'Hasstadt',
+    zustand: 'Neubau',
+    objekterrichtung: 'Projektmanagement',
+    grundstuecksart: 'Erbbaurecht',
+    untermieter: 'Nein',
+    imageUrl: 'https://media.gettyimages.com/id/128502214/de/foto/classic-turn-of-the-century-american-house.jpg?s=612x612&w=gi&k=20&c=d4GVWJ7ehp10xUREyj0787VvZ1Aedxts9ZNSMiuL0_Y=',
+    vertraege: getContract(6),
+  },
+];
+
 // Route to get contract data for a specific asset
 app.post('/get_contract', (req, res) => {
   const { id } = req.body; // Extract id from the request body
@@ -460,89 +541,52 @@ app.post('/get_contract', (req, res) => {
   }
 });
 
+// Route to get contract data for a specific asset
+app.post('/get_unique_contract', (req, res) => {
+  const contract_id = req.body.id; // Extract id from the request body
+
+  console.log("Contract ID is " + contract_id);
+
+  // Find the contract with the given ID
+  let foundContract = null;
+  let foundAsset = null;
+
+  // Iterate over the values of the contracts object
+  for (const contractsArray of Object.values(contracts)) {
+    // Iterate over each contract object in the current contractsArray
+    for (const contract of contractsArray) {
+      if (contract.id === contract_id) {
+        foundContract = contract;
+        foundAsset = leasingAssets.find(asset => String(asset.id) === contract.assetId);
+        console.log("Found contract and asset");
+        console.log(foundContract);
+        console.log(foundAsset);
+        break;
+      }
+    }
+    if (foundContract && foundAsset) {
+      break;
+    }
+  }
+
+  if (foundContract && foundAsset) {
+    const response = { contract: foundContract, asset: foundAsset };
+    console.log("End response");
+    console.log(response);
+    res.json(response);
+  } else {
+    res.status(404).json({ error: 'Contract or asset not found' });
+  }
+});
+
+
+
+
+
 // Route to get all assets
 app.get("/get_assets", (req, res) => {
   console.log("Made connection to /assets (Server)");
-  const leasingAssets = [
-    {
-      id: 5472,
-      objektartBezeichnung: 'Parkhaus',
-      strasse: 'Froschgasse 93',
-      plz: '58912',
-      ort: 'Bierstadt',
-      zustand: 'Neubau',
-      objekterrichtung: 'Sale and lease back',
-      grundstuecksart: 'Kauf',
-      untermieter: 'Nein',
-      imageUrl: 'https://media.gettyimages.com/id/128502214/de/foto/classic-turn-of-the-century-american-house.jpg?s=612x612&w=gi&k=20&c=d4GVWJ7ehp10xUREyj0787VvZ1Aedxts9ZNSMiuL0_Y=',
-      vertraege: getContract(1),
-    },
-    {
-      id: 6160,
-      objektartBezeichnung: 'Lagerhalle',
-      strasse: 'Weingasse 11',
-      plz: '58911',
-      ort: 'Hasstadt',
-      zustand: 'Neubau',
-      objekterrichtung: 'Projektmanagement',
-      grundstuecksart: 'Erbbaurecht',
-      untermieter: 'Nein',
-      imageUrl: 'https://www.wilsonhomes.com.au/sites/default/files/styles/blog_hero_banner/public/My%20project%20-%202023-06-20T095818.329%20%281%29_0.jpg?itok=UbtVbhT0',
-      vertraege: getContract(2),
-    },
-    {
-      id: 7845,
-      objektartBezeichnung: 'Lagerhalle',
-      strasse: 'Froschgasse 78',
-      plz: '58912',
-      ort: 'Bierstadt',
-      zustand: 'Neubau',
-      objekterrichtung: 'Sale and lease back',
-      grundstuecksart: 'Kauf',
-      untermieter: 'Ja',
-      imageUrl: 'https://cdna.artstation.com/p/assets/images/images/045/535/208/large/eugene-caubel-haussmann-concept.jpg?1642963048',
-      vertraege: getContract(3),
-    },
-    {
-      id: 9017,
-      objektartBezeichnung: 'Lagerhalle',
-      strasse: 'Weingasse 11',
-      plz: '58911',
-      ort: 'Hasstadt',
-      zustand: 'Neubau',
-      objekterrichtung: 'Projektmanagement',
-      grundstuecksart: 'Erbbaurecht',
-      untermieter: 'Nein',
-      imageUrl: 'https://butterflymx.com/wp-content/uploads/2022/07/asset-management-vs-property-management.jpg',
-      vertraege: getContract(4),
-    },
-    {
-      id: 8542,
-      objektartBezeichnung: 'Produktionsgebäude',
-      strasse: 'Froschgasse 85',
-      plz: '58912',
-      ort: 'Bierstadt',
-      zustand: 'Neubau',
-      objekterrichtung: 'Sale and lease back',
-      grundstuecksart: 'Kauf',
-      untermieter: 'Ja',
-      imageUrl: 'https://d1y8sb8igg2f8e.cloudfront.net/images/Hey_Congress_No_Time_to_Leave_the_Dance_Floor_.width-600.jpg',
-      vertraege: getContract(5),
-    },
-    {
-      id: 5509,
-      objektartBezeichnung: 'Sondergebäude',
-      strasse: 'Weingasse 13',
-      plz: '58911',
-      ort: 'Hasstadt',
-      zustand: 'Neubau',
-      objekterrichtung: 'Projektmanagement',
-      grundstuecksart: 'Erbbaurecht',
-      untermieter: 'Nein',
-      imageUrl: 'https://media.gettyimages.com/id/128502214/de/foto/classic-turn-of-the-century-american-house.jpg?s=612x612&w=gi&k=20&c=d4GVWJ7ehp10xUREyj0787VvZ1Aedxts9ZNSMiuL0_Y=',
-      vertraege: getContract(6),
-    },
-  ];
+  
 
   res.json(leasingAssets);
 });
