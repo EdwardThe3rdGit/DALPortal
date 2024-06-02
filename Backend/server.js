@@ -47,7 +47,7 @@ const contracts = {
   ],
   2: [
     {
-      id: '61601.001',
+      id: '4',
       assetId: '2',
       abschlussdatum: '31.12.2022',
       mietbeginn: '01.01.2020',
@@ -117,7 +117,7 @@ const contracts = {
   ],
   4: [
     {
-      id: '90171.001',
+      id: '8',
       assetId: '4',
       typ: 'VA',
       leasingobjektgesellschaft: 'Fatina GVG',
@@ -133,7 +133,7 @@ const contracts = {
   ],
   5: [
     {
-      id: '85411.001',
+      id: '9',
       assetId: '5',
       typ: 'VA',
       leasingobjektgesellschaft: 'Fatina GVG',
@@ -150,7 +150,7 @@ const contracts = {
   ],
   6: [
     {
-      id: '55091.001',
+      id: '10',
       assetId: '6',
       typ: 'VA',
       leasingobjektgesellschaft: 'Fatina GVG',
@@ -317,100 +317,6 @@ app.post('/get_unique_contract', (req, res) => {
 // Route to get all assets
 app.get("/get_assets", (req, res) => {
   console.log("Made connection to /assets (Server)");
-  const leasingAssets = [
-    {
-      id: 1,
-      standort: 'Berlin',
-      leasingobjekt: 'Car',
-      leasinggeber: 'Company A',
-      leasingnehmer: 'John Doe',
-      imageUrl: 'https://media.gettyimages.com/id/128502214/de/foto/classic-turn-of-the-century-american-house.jpg?s=612x612&w=gi&k=20&c=d4GVWJ7ehp10xUREyj0787VvZ1Aedxts9ZNSMiuL0_Y=',
-      vertraege: getContract(1),
-
-    },
-    {
-      id: 2,
-      standort: 'Berlin',
-      leasingobjekt: 'Car',
-      leasinggeber: 'Company A',
-      leasingnehmer: 'John Doe',
-      imageUrl: 'https://www.wilsonhomes.com.au/sites/default/files/styles/blog_hero_banner/public/My%20project%20-%202023-06-20T095818.329%20%281%29_0.jpg?itok=UbtVbhT0',
-      vertraege: getContract(2),
-
-    },
-    {
-      id: 3,
-      standort: 'Berlin',
-      leasingobjekt: 'Car',
-      leasinggeber: 'Company A',
-      leasingnehmer: 'John Doe',
-      imageUrl: 'https://cdna.artstation.com/p/assets/images/images/045/535/208/large/eugene-caubel-haussmann-concept.jpg?1642963048',
-      vertraege: getContract(3),
-
-    },
-
-    {
-      id: 4,
-      standort: 'Berlin',
-      leasingobjekt: 'Car',
-      leasinggeber: 'Company A',
-      leasingnehmer: 'John Doe',
-      imageUrl: 'https://butterflymx.com/wp-content/uploads/2022/07/asset-management-vs-property-management.jpg',
-      vertraege: getContract(4),
-
-    },
-    {
-      id: 5,
-      standort: 'Berlin',
-      leasingobjekt: 'Car',
-      leasinggeber: 'Company A',
-      leasingnehmer: 'John Doe',
-      imageUrl: 'https://d1y8sb8igg2f8e.cloudfront.net/images/Hey_Congress_No_Time_to_Leave_the_Dance_Floor_.width-600.jpg',
-      vertraege: getContract(5),
-
-    },
-    {
-      id: 6,
-      standort: 'Berlin',
-      leasingobjekt: 'Car',
-      leasinggeber: 'Company A',
-      leasingnehmer: 'John Doe',
-      imageUrl: 'https://cdn1.vogel.de/blLu-w9zy244Zp6RW5E6AjazJeU=/fit-in/800x0/p7i.vogel.de/wcms/26/9a/269a43221f58018f0bcabfb125f74cb4/0109208144.jpeg',
-      vertraege: getContract(6),
-      
-    },
-    {
-      id: 7,
-      standort: 'Berlin',
-      leasingobjekt: 'Car',
-      leasinggeber: 'Company A',
-      leasingnehmer: 'John Doe',
-      imageUrl: 'https://media.gettyimages.com/id/128502214/de/foto/classic-turn-of-the-century-american-house.jpg?s=612x612&w=gi&k=20&c=d4GVWJ7ehp10xUREyj0787VvZ1Aedxts9ZNSMiuL0_Y=',
-      vertraege: getContract(7),
-
-    },
-    {
-      id: 8,
-      standort: 'Berlin',
-      leasingobjekt: 'Car',
-      leasinggeber: 'Company A',
-      leasingnehmer: 'John Doe',
-      imageUrl: 'https://www.wilsonhomes.com.au/sites/default/files/styles/blog_hero_banner/public/My%20project%20-%202023-06-20T095818.329%20%281%29_0.jpg?itok=UbtVbhT0',
-      vertraege: getContract(8),
-
-    },
-    {
-      id: 9,
-      standort: 'Berlin',
-      leasingobjekt: 'Car',
-      leasinggeber: 'Company A',
-      leasingnehmer: 'John Doe',
-      imageUrl: 'https://media.gettyimages.com/id/128502214/de/foto/classic-turn-of-the-century-american-house.jpg?s=612x612&w=gi&k=20&c=d4GVWJ7ehp10xUREyj0787VvZ1Aedxts9ZNSMiuL0_Y=',
-      vertraege: getContract(9),
-      
-    },
-    // More assets
-  ];
 
   res.json(leasingAssets);
 });
