@@ -63,10 +63,8 @@
           <div class="card-body">
             <!-- Verträge information -->
             <div *ngFor="let contract of asset.vertraege">
-              <div (click)="navigateToUniqueContract(contract.id)">
-                <strong class="label">Vertrag:</strong>
-              </div>
-              
+              <h5> <strong class="label">Vertrag:</strong></h5>
+            
               <hr>
               <div class="button-container">
                 <a href="../pdfs/Leasingvertrag_Test.pdf" download>
@@ -74,6 +72,9 @@
                     <i class="fa-regular fa-floppy-disk"></i>
                   </button>
                 </a>
+                <button class="btn link-prop" (click)="navigateToUniqueContract(contract.id)">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
                 <button class="btn link-prop" (click)="navigateToMsges()">
                   <i class="fas fa-envelope"></i>
                 </button>

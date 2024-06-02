@@ -25,13 +25,15 @@
 .label {
   font-weight: bold;
   margin-right: 10px;
-  min-width: 130px;
+  min-width:80px;
+  font-size: 0.82em;
 }
 
 .value {
   white-space: nowrap;
   text-align: right;
   flex-grow: 1;
+  font-size: 0.8em;
 }
 
 .assets-title {
@@ -55,14 +57,17 @@
   margin-right: 15px;
 }
 
+
 .image-container img {
   width: 100%;
-  max-width: 300px;
+  max-width: 400px;
   height: auto;
   aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: 10px;
 }
+
+
 
 .button-container {
   display: flex;
@@ -96,7 +101,8 @@
 }
 
 .button-container .btn .fa-floppy-disk, 
-.button-container .btn .fa-envelope {
+.button-container .btn .fa-envelope,
+.button-container .btn .fa-eye {
   font-size: 1.5em; /* Adjust size as needed */
   color: #ee0000 ; /* Adjust color as needed */
 }
