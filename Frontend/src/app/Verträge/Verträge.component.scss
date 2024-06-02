@@ -1,0 +1,45 @@
+.container {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: #f7f7f7;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.row {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-weight: bold;
+  margin-right: 10px;
+  min-width: 120px;
+}
+
+.value {
+  white-space: pre-wrap;
+  flex: 1 1 auto;
+  text-align: right;
+}
+
+.assets-title {
+  text-align: center;
+}
+
+.card {
+  border-radius: 20px;
+  box-shadow: 0;
+}
+
+.card-body .d-flex {
+  display: flex;
+  justify-content: space-between;
+}

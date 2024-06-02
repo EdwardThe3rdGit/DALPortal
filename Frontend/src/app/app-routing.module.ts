@@ -6,6 +6,7 @@ import { MessagesComponent } from './Messages/Messages.component';
 import { AssetsComponent } from './Assets/Assets.component';
 import { AuthGuard } from '../app/auth.guard';
 import { ContractsComponent } from './Contracts/Contracts.component';
+import { VertragsComponent } from './Verträge/Verträge.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -25,6 +26,10 @@ const routes: Routes = [
     path: 'assets',
     component: AssetsComponent,
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'verträge',
+    component: VertragsComponent,
   },
   {
     path: 'contracts/:id',

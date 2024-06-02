@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from './Messages-Api';
+
 
 @Component({
   selector: 'app-Messages',
@@ -6,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./Messages.component.scss'],
 })
 export class MessagesComponent implements OnInit {
-  constructor() {}
+  postFach: any[] = [];
+  constructor(private dataService: DataService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.dataService.fetchData().subscribe(data => {
+      // Handle the fetched data here
+      console.log(data);
+
+      this.postFach = data;
+    });
+  }
 }

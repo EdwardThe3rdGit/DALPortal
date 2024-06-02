@@ -13,21 +13,25 @@
   margin-bottom: 15px;
 }
 
-.col {
+.col-md-4 {
   display: flex;
   flex-direction: column;
+}
+
+.fontBold {
+  font-weight: bold;
 }
 
 .label {
   font-weight: bold;
   margin-right: 10px;
-  min-width: 120px;
+  min-width: 130px;
 }
 
 .value {
-  white-space: pre-wrap;
-  flex: 1 1 auto;
+  white-space: nowrap;
   text-align: right;
+  flex-grow: 1;
 }
 
 .assets-title {
@@ -42,4 +46,50 @@
 .card-body .d-flex {
   display: flex;
   justify-content: space-between;
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.image-container img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ensure space between buttons */
+  margin-bottom: 5px; /* Reduce bottom margin */
+  height: 25px; /* Adjust button height */
+}
+
+.button-container .btn:first-child {
+  margin-right: auto; /* Push first button to the far left */
+}
+
+.button-container .btn:last-child {
+  margin-left: auto; /* Push last button to the far right */
+}
+
+.align-right {
+  display: flex;
+  justify-content: flex-end; /* Align children to the right */
+}
+
+
+.link-prop {
+  text-decoration: underline;
+  color: blue;
+}
+
+.full {
+  width: 100%;
 }
