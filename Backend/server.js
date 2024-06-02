@@ -565,18 +565,6 @@ app.post('/get_unique_contract', (req, res) => {
         break;
       }
     }
-    if (foundContract && foundAsset) {
-      break;
-    }
-  }
-
-  if (foundContract && foundAsset) {
-    const response = { contract: foundContract, asset: foundAsset };
-    console.log("End response");
-    console.log(response);
-    res.json(response);
-  } else {
-    res.status(404).json({ error: 'Contract or asset not found' });
   }
   if (foundContract && foundAsset) {
     const response = { contract: foundContract, asset: foundAsset };
