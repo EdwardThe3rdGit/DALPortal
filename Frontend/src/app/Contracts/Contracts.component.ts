@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { DataService } from './contracts-api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contracts',
@@ -8,21 +8,29 @@ import { DataService } from './contracts-api';
   styleUrls: ['./contracts.component.scss'],
 })
 export class ContractsComponent implements OnInit {
-  contractId: string | null = null;
   contracts: any[] = [];
 
-  constructor(private route: ActivatedRoute, private dataService: DataService) {}
+  constructor(private dataService: DataService, private router: Router ) {}
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      this.contractId = params.get('id');
-      if (this.contractId) {
-        this.dataService.getContractData(this.contractId).subscribe(data => {
-          this.contracts = data; // Assuming the response is an array of contracts
-        }, error => {
-          console.error('Error fetching contract data', error);
-        });
-      }
+    // Entferne die Überprüfung auf this.contractId, da wir alle Verträge anzeigen möchten
+    this.dataService.fetchAssets().subscribe(data => {
+      // Hier setzen wir this.contracts auf die empfangenen Daten, da fetchAssets() alle Verträge holt
+      this.contracts = data;
+    }, error => {
+      console.error('Error fetching contract data', error);
     });
+  }
+
+  loadAllContracts() {
+    this.dataService.fetchContracts().subscribe(data => {
+      this.contracts = data;
+    }, error => {
+      console.error('Error fetching contracts', error);
+    });
+  }
+
+  navigateToMsges() {
+    this.router.navigate(['/messages']);
   }
 }

@@ -1,5 +1,3 @@
-// Login.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
@@ -25,6 +23,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.authService.login();
-    this.router.navigate(['/assets']);
+    const returnUrl = this.router.parseUrl(this.router.url).queryParams['returnUrl'] || '/assets';
+    this.router.navigateByUrl(returnUrl);
   }
 }

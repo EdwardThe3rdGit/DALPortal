@@ -1,20 +1,168 @@
-<div class="row" *ngIf="contracts.length > 0; else noContracts">
-  <div class="col-md-12" *ngFor="let contract of contracts">
-    <div class="card mb-3">
-      <div class="card-body">
-        <h5 class="card-title">Contract ID: {{ contract.contractId }}</h5>
-        <p class="card-text">Vertragsabschlussdatum: {{ contract.vertragsabschlussdatum }}</p>
-        <p class="card-text">Mietbeginn: {{ contract.mietbeginn }}</p>
-        <p class="card-text">Endabrechnung: {{ contract.endabrechnung }}</p>
-        <p class="card-text">Zinskonversion: {{ contract.zinskonversion }}</p>
-        <p class="card-text">Laufzeit: {{ contract.laufzeit }}</p>
-        <p class="card-text">GIK: {{ contract.gik }}</p>
-        <p class="card-text">Abschlussgebühr: {{ contract.abschlussgebuehr }}</p>
+<div class="container">
+  <div class="card mb-4 full-width" >
+    <div class="card-body">
+      <div>
+        <h3><strong class="label">Leasingobjekt:</strong></h3>
       </div>
+      <hr>
+      <div class="d-flex mb-2 align-items-stretch">
+        <div class="image-container">
+          <img src="{{ asset.imageUrl }}" alt="Asset Image">
+        </div>
+        <div class="d-flex mb-2">
+          <div>
+            <div class="d-flex mb-2">
+              <strong class="label">Standort:</strong>
+              <p class="mb-0 value">{{ asset.id }}</p>
+            </div>
+            <div class="d-flex mb-2">
+              <strong class="label">Objektart:</strong>
+              <p class="mb-0 value">{{ asset.objektartBezeichnung }}</p>
+            </div>
+            <div class="d-flex mb-2">
+              <strong class="label">Standort:</strong>
+              <p class="mb-0 value">{{ asset.strasse }}, {{ asset.plz }} {{ asset.ort }}</p>
+            </div>
+            <div class="d-flex mb-2">
+              <strong class="label">Zustand:</strong>
+              <p class="mb-0 value">{{ asset.zustand }}</p>
+            </div>
+            <div class="d-flex mb-2">
+              <strong class="label">Objekterrichtung:</strong>
+              <p class="mb-0 value">{{ asset.objekterrichtung }}</p>
+            </div>
+            <div class="d-flex mb-2">
+              <strong class="label">Grundstücksart:</strong>
+              <p class="mb-0 value">{{ asset.grundstuecksart }}</p>
+            </div>
+            <div class="d-flex mb-2">
+              <strong class="label">Untermieter:</strong>
+              <p class="mb-0 value">{{ asset.untermieter }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="button-container">
+        <button class="btn link-prop" (click)="navigateToMsges()">
+          <i class="fas fa-envelope"></i>
+        </button>
+      </div>
+      
+      
     </div>
   </div>
+  <div class="card">
+    <div class="card-body">
+      <!-- Verträge information -->
+      <div>
+        <div>
+          <h5><strong class="label">Vertrag:</strong></h5>
+        </div>
+        
+        <hr>
+        <div class="button-container">
+          <a href="../pdfs/Leasingvertrag_Test.pdf" download>
+            <button class="btn link-prop">
+              <i class="fa-regular fa-floppy-disk"></i>
+            </button>
+          </a>
+          <button class="btn link-prop" (click)="navigateToMsges()">
+            <i class="fas fa-envelope"></i>
+          </button>
+        </div>
+        <br>
+        <div class="d-flex mb-2">
+          <div class="card mb-4 full">
+            <div class="card-body">
+              <div class="d-flex mb-2">
+                <p class="card-text">Vertragsabschlussdatum:</p>
+                <p class="mb-0 value">{{ contract.abschlussdatum }}</p>
+              </div>
+              <div class="d-flex mb-2">
+                <p class="card-text">Mietbeginn:</p>
+                <p class="mb-0 value">{{ contract.mietbeginn }}</p>
+              </div>
+              <div class="d-flex mb-2">
+                <p class="card-text">Endabrechnung:</p>
+                <p class="mb-0 value">{{ contract.endabrechnung }}</p>
+              </div>
+              <div class="d-flex mb-2">
+                <p class="card-text">Zinskonversion:</p>
+                <p class="mb-0 value">{{ contract.zinskonversion }}</p>
+              </div>
+              <div class="d-flex mb-2">
+                <p class="card-text">Laufzeit:</p>
+                <p class="mb-0 value">{{ contract.laufzeit }}</p>
+              </div>
+              <div class="d-flex mb-2">
+                <p class="card-text">GIK:</p>
+                <p class="mb-0 value">{{ contract.gesamtinvestition }}€</p>
+              </div>
+              <div class="d-flex mb-2">
+                <p class="card-text">Abschlussgebühr:</p>
+                <p class="mb-0 value">{{ contract.abschlussgebuehr }}</p>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+    
+      </div>
+    </div>
+    
+    <br>
+    
+    
 </div>
 
-<ng-template #noContracts>
-  <p>No contracts found.</p>
-</ng-template>
+<div *ngFor="let rechnung of contract.rechnungen">
+  <hr>
+<div class="card">
+  <div class="card-body">
+    <!-- Verträge information -->
+    <div>
+      <div>
+        <h5><strong class="label">Rechnung:</strong></h5>
+      </div>
+      
+      <hr>
+      <div class="button-container">
+        <a href="../pdfs/Leasingvertrag_Test.pdf" download>
+          <button class="btn link-prop">
+            <i class="fa-regular fa-floppy-disk"></i>
+          </button>
+        </a>
+        <button class="btn link-prop" (click)="navigateToMsges()">
+          <i class="fas fa-envelope"></i>
+        </button>
+      </div>
+      <br>
+      <div class="d-flex mb-2">
+        <div class="card mb-4 full">
+          <div class="card-body">
+            <div class="d-flex mb-2">
+              <p class="card-text">Rechnungsnummer:</p>
+              <p class="mb-0 value">{{ rechnung.rechnungsnummer }}</p>
+            </div>
+            <div class="d-flex mb-2">
+              <p class="card-text">Rechnungsdatum:</p>
+              <p class="mb-0 value">{{ rechnung.rechnungsdatum }}</p>
+            </div>
+            <div class="d-flex mb-2">
+              <p class="card-text">Betrag:</p>
+              <p class="mb-0 value">{{ rechnung.betrag }}€</p>
+            </div>
+            <div class="d-flex mb-2">
+              <p class="card-text">Status:</p>
+              <p class="mb-0 value">{{ rechnung.status }}</p>
+            </div>
+          
+        </div>
+      </div>
+  
+    </div>
+    <br>
+  </div>
+</div>
+</div>

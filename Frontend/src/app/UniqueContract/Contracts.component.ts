@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { DataService } from './Contracts-Api';
 
 @Component({
@@ -9,9 +10,10 @@ import { DataService } from './Contracts-Api';
 })
 export class ContractComponent implements OnInit {
   contractId: string | null = null;
-  contracts: any[] = [];
+  contract: any = {}; // Dictionary for contract data
+  asset: any = {}; // Dictionary for asset data
 
-  constructor(private route: ActivatedRoute, private dataService: DataService) {}
+  constructor(private route: ActivatedRoute, private router: Router, private dataService: DataService) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -19,12 +21,18 @@ export class ContractComponent implements OnInit {
       console.log("ID: " + this.contractId);
       if (this.contractId) {
         this.dataService.getContractData(this.contractId).subscribe(data => {
+          console.log("Got data,");
           console.log(data);
-          this.contracts = data[0]; // Assuming the response is an array of contracts
+          this.contract = data.contract; // Assign contract data to contract dictionary
+          this.asset = data.asset; // Assign asset data to asset dictionary
         }, error => {
           console.error('Error fetching contract data', error);
         });
       }
     });
+  }
+  
+  navigateToMsges() {
+    this.router.navigate(['/messages']);
   }
 }
