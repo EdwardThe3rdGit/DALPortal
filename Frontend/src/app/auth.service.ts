@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
   private loggedIn = false;
+  redirectUrl: string = '/';
 
   isLoggedIn(): boolean {
     return this.loggedIn;
