@@ -11,6 +11,19 @@
           <p class="card-text">Laufzeit: {{ contract.laufzeit }}</p>
           <p class="card-text">GIK: {{ contract.gesamtinvestition }}</p>
           <p class="card-text">Abschlussgebühr: {{ contract.abschlussgebuehr }}</p>
+          <hr>
+          <div class="button-container">
+            <a href="../pdfs/Leasingvertrag_Test.pdf" download>
+              <button class="btn link-prop">
+                <i class="fa-regular fa-floppy-disk"></i>
+              </button>        
+            </a>                  
+            <button class="btn link-prop" (click)="navigateToMsges()" style="background-color: #ee0000; color: #ffffff; align-items: right;">
+              <i class="fas fa-envelope"></i>
+            </button>
+
+
+          </div>
         </div>
       </div>
     </div>
