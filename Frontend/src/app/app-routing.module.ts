@@ -33,8 +33,8 @@ const routes: Routes = [
     component: VertragsComponent,
   },
   {
-    path: 'contracts/:id',
-    component: ContractsComponent,
+    path: 'contracts', // Geändert
+    component: ContractsComponent, // Geändert
   },
   {
     path: 'contract',

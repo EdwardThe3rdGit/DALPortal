@@ -15,4 +15,8 @@ export class DataService {
   getContractData(id: string): Observable<any> {
     return this.http.post<any>('http://localhost:3002/get_contract', { id });
   }
+
+  fetchContracts(): Observable<any[]> { // Neue Methode hinzugefügt
+    return this.http.get<any[]>('http://localhost:3002/get_all_contracts');
+  }
 }
