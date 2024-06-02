@@ -1,33 +1,19 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-4" *ngFor="let contract of contracts; let i=index">
-      <div class="card mb-3">
-        <div class="card-body">
-          <h5 class="card-title">Vertrags ID: {{ contract.id }}</h5>
-          <p class="card-text">Vertragsabschlussdatum: {{ contract.abschlussdatum }}</p>
-          <p class="card-text">Mietbeginn: {{ contract.mietbeginn }}</p>
-          <p class="card-text">Endabrechnung: {{ contract.endabrechnung }}</p>
-          <p class="card-text">Zinskonversion: {{ contract.zinskonversion }}</p>
-          <p class="card-text">Laufzeit: {{ contract.laufzeit }}</p>
-          <p class="card-text">GIK: {{ contract.gesamtinvestition }}</p>
-          <p class="card-text">Abschlussgebühr: {{ contract.abschlussgebuehr }}</p>
-          <hr>
-          <div class="button-container">
-            <a href="../pdfs/Leasingvertrag_Test.pdf" download>
-              <button class="btn link-prop">
-                <i class="fa-regular fa-floppy-disk"></i>
-              </button>        
-            </a>                  
-            <button class="btn link-prop" (click)="navigateToMsges()" style="background-color: #ee0000; color: #ffffff; align-items: right;">
-              <i class="fas fa-envelope"></i>
-            </button>
-
-
-          </div>
-        </div>
+<div class="row" *ngIf="contracts.length > 0; else noContracts">
+  <div class="col-md-12" *ngFor="let contract of contracts">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Contract ID: {{ contract.contractId }}</h5>
+        <p class="card-text">Vertragsabschlussdatum: {{ contract.vertragsabschlussdatum }}</p>
+        <p class="card-text">Mietbeginn: {{ contract.mietbeginn }}</p>
+        <p class="card-text">Endabrechnung: {{ contract.endabrechnung }}</p>
+        <p class="card-text">Zinskonversion: {{ contract.zinskonversion }}</p>
+        <p class="card-text">Laufzeit: {{ contract.laufzeit }}</p>
+        <p class="card-text">GIK: {{ contract.gik }}</p>
+        <p class="card-text">Abschlussgebühr: {{ contract.abschlussgebuehr }}</p>
       </div>
     </div>
   </div>
+</div>
 
   <ng-template #noContracts>
     <p>No contracts found.</p>

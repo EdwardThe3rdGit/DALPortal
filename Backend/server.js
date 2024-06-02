@@ -6,133 +6,67 @@ const app = express(); // Create an instance of the express application
 app.use(cors()); // Enable CORS policy for all routes
 app.use(express.json()); // Middleware to parse JSON request bodies
 
+
 // Dummy data for contracts
-// Dummy data for contracts
+
 const contracts = {
   1: [
     {
-      id: '1',
+      id: '54721.001', 
       assetId: '1',
       abschlussdatum: '31.12.2022',
       mietbeginn: '01.01.2020',
-      endabrechnung: '28.01.2055',
+      endabrechnung: '68.01.2055',
       zinskonversion: '31.12.2022',
       laufzeit: '234 Monate',
       gesamtinvestition: '10000',
       abschlussgebuehr: '654',
-      rechnungen : 
-      [
-          {
-            rechnungsnummer : '45871',
-            rechnungsdatum : '02.01.2024',
-            betrag: '1910.60',
-            status: 'offen',
-            vertrag_ID : 1,
-          },
-          {
-            rechnungsnummer : '98652',
-            rechnungsdatum : '12.02.2024',
-            betrag: '73.90',
-            status: 'beglichen',
-            vertrag_ID : 1,
-          },
-          {
-            rechnungsnummer : '89124',
-            rechnungsdatum : '14.02.2024',
-            betrag: '50.40',
-            status: 'beglichen',
-            vertrag_ID : 1,
-          }
-        ]
     },
     {
       id: '2',
       assetId: '1',
       abschlussdatum: '31.12.2023',
       mietbeginn: '01.01.2021',
-      endabrechnung: '28.01.2056',
+      endabrechnung: '68.01.2056',
       zinskonversion: '31.12.2023',
       laufzeit: '240 Monate',
       gesamtinvestition: '12000',
       abschlussgebuehr: '800',
-      rechnungen: [
-        {
-          rechnungsnummer : '45812',
-          rechnungsdatum : '01.03.2024',
-          betrag: '214438.00',
-          status: 'offen',
-          vertrag_ID : 2,
-        }
-      ]
     },
     {
       id: '3',
       assetId: '1',
       abschlussdatum: '31.12.2024',
       mietbeginn: '01.01.2022',
-      endabrechnung: '28.01.2057',
+      endabrechnung: '68.01.2057',
       zinskonversion: '31.12.2024',
       laufzeit: '246 Monate',
       gesamtinvestition: '15000',
       abschlussgebuehr: '1000',
-      rechnungen: [
-        {
-          rechnungsnummer : '94283',
-          rechnungsdatum : '01.03.2024',
-          betrag: '190638.00',
-          status: 'offen',
-          vertrag_ID : 3,
-        }
-      ]
     },
   ],
   2: [
     {
-      id: '4',
+      id: '61601.001',
       assetId: '2',
       abschlussdatum: '31.12.2022',
       mietbeginn: '01.01.2020',
-      endabrechnung: '28.01.2055',
+      endabrechnung: '68.01.2055',
       zinskonversion: '31.12.2022',
       laufzeit: '234 Monate',
       gesamtinvestition: '10000',
       abschlussgebuehr: '654',
-      rechnungen: [
-        {
-          rechnungsnummer : '77412',
-          rechnungsdatum : '01.06.2024',
-          betrag: '192185.00',
-          status: 'offen',
-          vertrag_ID : 4,
-        },
-        {
-          rechnungsnummer : '66842',
-          rechnungsdatum : '01.03.2024',
-          betrag: '12495.00',
-          status: 'offen',
-          vertrag_ID : 4,
-        }
-      ]
     },
     {
       id: '5',
       assetId: '2',
       abschlussdatum: '31.12.2023',
       mietbeginn: '01.01.2021',
-      endabrechnung: '28.01.2056',
+      endabrechnung: '68.01.2056',
       zinskonversion: '31.12.2023',
       laufzeit: '240 Monate',
       gesamtinvestition: '12000',
       abschlussgebuehr: '800',
-      rechnungen: [
-        {
-          rechnungsnummer : '22661',
-          rechnungsdatum : '01.03.2024',
-          betrag: '1785.00',
-          status: 'offen',
-          vertrag_ID : 5,
-        },
-      ]
     },
     {
       id: '6',
@@ -158,7 +92,7 @@ const contracts = {
     },
   ],
   3: [
-    {
+    /* {
       id: '8',
       assetId: '3',
       abschlussdatum: '31.12.2022',
@@ -170,7 +104,7 @@ const contracts = {
       abschlussgebuehr: '654',
     },
     {
-      id: '9',
+      id: '78451.001',
       assetId: '3',
       abschlussdatum: '31.12.2023',
       mietbeginn: '01.01.2021',
@@ -179,257 +113,57 @@ const contracts = {
       laufzeit: '240 Monate',
       gesamtinvestition: '12000',
       abschlussgebuehr: '800',
-    },
+    }, */
   ],
   4: [
     {
-      id: '10',
+      id: '90171.001',
       assetId: '4',
-      abschlussdatum: '31.12.2022',
-      mietbeginn: '01.01.2020',
-      endabrechnung: '68.01.2055',
-      zinskonversion: '31.12.2022',
-      laufzeit: '234 Monate',
-      gesamtinvestition: '10000',
-      abschlussgebuehr: '654',
-    },
-    {
-      id: '11',
-      assetId: '4',
-      abschlussdatum: '31.12.2023',
-      mietbeginn: '01.01.2021',
-      endabrechnung: '68.01.2056',
-      zinskonversion: '31.12.2023',
-      laufzeit: '240 Monate',
-      gesamtinvestition: '12000',
-      abschlussgebuehr: '800',
-    },
-    {
-      id: '12',
-      assetId: '4',
-      abschlussdatum: '31.12.2024',
-      mietbeginn: '01.01.2022',
-      endabrechnung: '68.01.2057',
-      zinskonversion: '31.12.2024',
-      laufzeit: '246 Monate',
-      gesamtinvestition: '15000',
-      abschlussgebuehr: '1000',
-    },
-    {
-      id: '13',
-      assetId: '4',
-      abschlussdatum: '31.12.2025',
-      mietbeginn: '01.01.2023',
-      endabrechnung: '68.01.2058',
-      zinskonversion: '31.12.2025',
-      laufzeit: '252 Monate',
-      gesamtinvestition: '18000',
-      abschlussgebuehr: '1200',
-    },
+      typ: 'VA',
+      leasingobjektgesellschaft: 'Fatina GVG',
+      kundeId: '25412',
+      mietbeginn: '2022-08-01',
+      laufzeit: '192 Monate',
+      mietende: '2038-07-31',
+      zahlungsrhythmus: 'monatlich',
+      zahlungsweise: 'nachschüssig',
+      gesamtinvestitionskosten: '17250000.00',
+      lastschrifteinzug: 'Nein'
+    }
   ],
   5: [
     {
-      id: '14',
+      id: '85411.001',
       assetId: '5',
-      abschlussdatum: '31.12.2022',
-      mietbeginn: '01.01.2020',
-      endabrechnung: '68.01.2055',
-      zinskonversion: '31.12.2022',
-      laufzeit: '234 Monate',
-      gesamtinvestition: '10000',
-      abschlussgebuehr: '654',
+      typ: 'VA',
+      leasingobjektgesellschaft: 'Fatina GVG',
+      kundeId: '25412',
+      mietbeginn: '2022-08-01',
+      laufzeit: '192 Monate',
+      mietende: '2038-07-31',
+      zahlungsrhythmus: 'monatlich',
+      zahlungsweise: 'nachschüssig',
+      gesamtinvestitionskosten: '17250000.00',
+      lastschrifteinzug: 'Nein',
     },
-    {
-      id: '15',
-      assetId: '5',
-      abschlussdatum: '31.12.2023',
-      mietbeginn: '01.01.2021',
-      endabrechnung: '68.01.2056',
-      zinskonversion: '31.12.2023',
-      laufzeit: '240 Monate',
-      gesamtinvestition: '12000',
-      abschlussgebuehr: '800',
-    },
-    {
-      id: '16',
-      assetId: '5',
-      abschlussdatum: '31.12.2024',
-      mietbeginn: '01.01.2022',
-      endabrechnung: '68.01.2057',
-      zinskonversion: '31.12.2024',
-      laufzeit: '246 Monate',
-      gesamtinvestition: '15000',
-      abschlussgebuehr: '1000',
-    },
+    
   ],
-
-  // Contracts for Asset ID 6
   6: [
     {
-      id: '17',
+      id: '55091.001',
       assetId: '6',
-      abschlussdatum: '31.12.2022',
-      mietbeginn: '01.01.2020',
-      endabrechnung: '68.01.2055',
-      zinskonversion: '31.12.2022',
-      laufzeit: '234 Monate',
-      gesamtinvestition: '10000',
-      abschlussgebuehr: '654',
-    },
-    {
-      id: '18',
-      assetId: '6',
-      abschlussdatum: '31.12.2023',
-      mietbeginn: '01.01.2021',
-      endabrechnung: '68.01.2056',
-      zinskonversion: '31.12.2023',
-      laufzeit: '240 Monate',
-      gesamtinvestition: '12000',
-      abschlussgebuehr: '800',
-    },
-  ],
-
-  // Contracts for Asset ID 7
-  7: [
-    {
-      id: '19',
-      assetId: '7',
-      abschlussdatum: '31.12.2022',
-      mietbeginn: '01.01.2020',
-      endabrechnung: '68.01.2055',
-      zinskonversion: '31.12.2022',
-      laufzeit: '234 Monate',
-      gesamtinvestition: '10000',
-      abschlussgebuehr: '654',
-    },
-    {
-      id: '20',
-      assetId: '7',
-      abschlussdatum: '31.12.2023',
-      mietbeginn: '01.01.2021',
-      endabrechnung: '68.01.2056',
-      zinskonversion: '31.12.2023',
-      laufzeit: '240 Monate',
-      gesamtinvestition: '12000',
-      abschlussgebuehr: '800',
-    },
-    {
-      id: '21',
-      assetId: '7',
-      abschlussdatum: '31.12.2024',
-      mietbeginn: '01.01.2022',
-      endabrechnung: '68.01.2057',
-      zinskonversion: '31.12.2024',
-      laufzeit: '246 Monate',
-      gesamtinvestition: '15000',
-      abschlussgebuehr: '1000',
-    },
-    {
-      id: '22',
-      assetId: '7',
-      abschlussdatum: '31.12.2025',
-      mietbeginn: '01.01.2023',
-      endabrechnung: '68.01.2058',
-      zinskonversion: '31.12.2025',
-      laufzeit: '252 Monate',
-      gesamtinvestition: '18000',
-      abschlussgebuehr: '1200',
-    },
-  ],
-
-  // Contracts for Asset ID 8
-  8: [
-    {
-      id: '23',
-      assetId: '8',
-      abschlussdatum: '31.12.2022',
-      mietbeginn: '01.01.2020',
-      endabrechnung: '68.01.2055',
-      zinskonversion: '31.12.2022',
-      laufzeit: '234 Monate',
-      gesamtinvestition: '10000',
-      abschlussgebuehr: '654',
-    },
-    {
-      id: '24',
-      assetId: '8',
-      abschlussdatum: '31.12.2023',
-      mietbeginn: '01.01.2021',
-      endabrechnung: '68.01.2056',
-      zinskonversion: '31.12.2023',
-      laufzeit: '240 Monate',
-      gesamtinvestition: '12000',
-      abschlussgebuehr: '800',
-    },
-    {
-      id: '25',
-      assetId: '8',
-      abschlussdatum: '31.12.2024',
-      mietbeginn: '01.01.2022',
-      endabrechnung: '68.01.2057',
-      zinskonversion: '31.12.2024',
-      laufzeit: '246 Monate',
-      gesamtinvestition: '15000',
-      abschlussgebuehr: '1000',
-    },
-    {
-      id: '26',
-      assetId: '8',
-      abschlussdatum: '31.12.2025',
-      mietbeginn: '01.01.2023',
-      endabrechnung: '68.01.2058',
-      zinskonversion: '31.12.2025',
-      laufzeit: '252 Monate',
-      gesamtinvestition: '15000',
-      abschlussgebuehr: '1000',
-    },
-  ],
-  9: [
-    {
-      id: '23',
-      assetId: '8',
-      abschlussdatum: '31.12.2022',
-      mietbeginn: '01.01.2020',
-      endabrechnung: '68.01.2055',
-      zinskonversion: '31.12.2022',
-      laufzeit: '234 Monate',
-      gesamtinvestition: '10000',
-      abschlussgebuehr: '654',
-    },
-    {
-      id: '24',
-      assetId: '8',
-      abschlussdatum: '31.12.2023',
-      mietbeginn: '01.01.2021',
-      endabrechnung: '68.01.2056',
-      zinskonversion: '31.12.2023',
-      laufzeit: '240 Monate',
-      gesamtinvestition: '12000',
-      abschlussgebuehr: '800',
-    },
-    {
-      id: '25',
-      assetId: '8',
-      abschlussdatum: '31.12.2024',
-      mietbeginn: '01.01.2022',
-      endabrechnung: '68.01.2057',
-      zinskonversion: '31.12.2024',
-      laufzeit: '246 Monate',
-      gesamtinvestition: '15000',
-      abschlussgebuehr: '1000',
-    },
-    {
-      id: '26',
-      assetId: '8',
-      abschlussdatum: '31.12.2025',
-      mietbeginn: '01.01.2023',
-      endabrechnung: '68.01.2058',
-      zinskonversion: '31.12.2025',
-      laufzeit: '252 Monate',
-      gesamtinvestition: '15000',
-      abschlussgebuehr: '1000',
-    },
-  ],
+      typ: 'VA',
+      leasingobjektgesellschaft: 'Fatina GVG',
+      kundeId: '25412',
+      mietbeginn: '2023-05-01',
+      laufzeit: '183 Monate',
+      mietende: '2038-07-31',
+      zahlungsrhythmus: 'monatlich',
+      zahlungsweise: 'nachschüssig',
+      gesamtinvestitionskosten: '8900000.00',
+      lastschrifteinzug: 'Ja'
+    }
+  ]
 };
 
 
@@ -583,7 +317,100 @@ app.post('/get_unique_contract', (req, res) => {
 // Route to get all assets
 app.get("/get_assets", (req, res) => {
   console.log("Made connection to /assets (Server)");
-  
+  const leasingAssets = [
+    {
+      id: 1,
+      standort: 'Berlin',
+      leasingobjekt: 'Car',
+      leasinggeber: 'Company A',
+      leasingnehmer: 'John Doe',
+      imageUrl: 'https://media.gettyimages.com/id/128502214/de/foto/classic-turn-of-the-century-american-house.jpg?s=612x612&w=gi&k=20&c=d4GVWJ7ehp10xUREyj0787VvZ1Aedxts9ZNSMiuL0_Y=',
+      vertraege: getContract(1),
+
+    },
+    {
+      id: 2,
+      standort: 'Berlin',
+      leasingobjekt: 'Car',
+      leasinggeber: 'Company A',
+      leasingnehmer: 'John Doe',
+      imageUrl: 'https://www.wilsonhomes.com.au/sites/default/files/styles/blog_hero_banner/public/My%20project%20-%202023-06-20T095818.329%20%281%29_0.jpg?itok=UbtVbhT0',
+      vertraege: getContract(2),
+
+    },
+    {
+      id: 3,
+      standort: 'Berlin',
+      leasingobjekt: 'Car',
+      leasinggeber: 'Company A',
+      leasingnehmer: 'John Doe',
+      imageUrl: 'https://cdna.artstation.com/p/assets/images/images/045/535/208/large/eugene-caubel-haussmann-concept.jpg?1642963048',
+      vertraege: getContract(3),
+
+    },
+
+    {
+      id: 4,
+      standort: 'Berlin',
+      leasingobjekt: 'Car',
+      leasinggeber: 'Company A',
+      leasingnehmer: 'John Doe',
+      imageUrl: 'https://butterflymx.com/wp-content/uploads/2022/07/asset-management-vs-property-management.jpg',
+      vertraege: getContract(4),
+
+    },
+    {
+      id: 5,
+      standort: 'Berlin',
+      leasingobjekt: 'Car',
+      leasinggeber: 'Company A',
+      leasingnehmer: 'John Doe',
+      imageUrl: 'https://d1y8sb8igg2f8e.cloudfront.net/images/Hey_Congress_No_Time_to_Leave_the_Dance_Floor_.width-600.jpg',
+      vertraege: getContract(5),
+
+    },
+    {
+      id: 6,
+      standort: 'Berlin',
+      leasingobjekt: 'Car',
+      leasinggeber: 'Company A',
+      leasingnehmer: 'John Doe',
+      imageUrl: 'https://cdn1.vogel.de/blLu-w9zy244Zp6RW5E6AjazJeU=/fit-in/800x0/p7i.vogel.de/wcms/26/9a/269a43221f58018f0bcabfb125f74cb4/0109208144.jpeg',
+      vertraege: getContract(6),
+      
+    },
+    {
+      id: 7,
+      standort: 'Berlin',
+      leasingobjekt: 'Car',
+      leasinggeber: 'Company A',
+      leasingnehmer: 'John Doe',
+      imageUrl: 'https://media.gettyimages.com/id/128502214/de/foto/classic-turn-of-the-century-american-house.jpg?s=612x612&w=gi&k=20&c=d4GVWJ7ehp10xUREyj0787VvZ1Aedxts9ZNSMiuL0_Y=',
+      vertraege: getContract(7),
+
+    },
+    {
+      id: 8,
+      standort: 'Berlin',
+      leasingobjekt: 'Car',
+      leasinggeber: 'Company A',
+      leasingnehmer: 'John Doe',
+      imageUrl: 'https://www.wilsonhomes.com.au/sites/default/files/styles/blog_hero_banner/public/My%20project%20-%202023-06-20T095818.329%20%281%29_0.jpg?itok=UbtVbhT0',
+      vertraege: getContract(8),
+
+    },
+    {
+      id: 9,
+      standort: 'Berlin',
+      leasingobjekt: 'Car',
+      leasinggeber: 'Company A',
+      leasingnehmer: 'John Doe',
+      imageUrl: 'https://media.gettyimages.com/id/128502214/de/foto/classic-turn-of-the-century-american-house.jpg?s=612x612&w=gi&k=20&c=d4GVWJ7ehp10xUREyj0787VvZ1Aedxts9ZNSMiuL0_Y=',
+      vertraege: getContract(9),
+      
+    },
+    // More assets
+  ];
 
   res.json(leasingAssets);
 });
