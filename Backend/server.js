@@ -499,30 +499,35 @@ app.get("/get_msges", (req, res) => {
   console.log("Made connection to /get_msges (Server)");
   const msges = [
     {
+      Gelesen: "0",
       Betreff: "Neues Datenschutz Gesetz",
       Sender: "DAL@gmail.com",
       Vorschau: "Wir haben ein neues...",
       Message: "Sehr geehrte Damen und Herren, \n\nwir möchten Sie darüber informieren, dass ein neues Datenschutzgesetz in Kraft getreten ist. Bitte lesen Sie die angehängten Dokumente für weitere Informationen.\n\nMit freundlichen Grüßen,\nIhr Datenschutz-Team"
     },
     {
+      Gelesen: "1",
       Betreff: "Wichtige Informationen zur Wartung",
       Sender: "service@webmail.com",
       Vorschau: "Am kommenden Wochenende werden...",
       Message: "Liebe Kunden, \n\nbitte beachten Sie, dass am kommenden Wochenende Wartungsarbeiten an unseren Servern durchgeführt werden. In dieser Zeit wird es zu Unterbrechungen im Service kommen. Wir entschuldigen uns für die Unannehmlichkeiten.\n\nBeste Grüße,\nIhr Webmail Service-Team"
     },
     {
+      Gelesen: "1",
       Betreff: "Einladung zum Meeting",
       Sender: "hr@unternehmen.de",
       Vorschau: "Bitte bestätigen Sie Ihre Teilnahme an...",
       Message: "Hallo, \n\nwir laden Sie herzlich zu unserem jährlichen Mitarbeiter-Meeting ein. Das Meeting findet am 15. Juni um 10:00 Uhr im Konferenzraum A statt. Bitte bestätigen Sie Ihre Teilnahme bis zum 10. Juni.\n\nVielen Dank,\nIhr HR-Team"
     },
     {
+      Gelesen: "1",
       Betreff: "Wichtige Informationen zur Wartung",
       Sender: "service@webmail.com",
       Vorschau: "Am kommenden Wochenende werden...",
       Message: "Liebe Kunden, \n\nbitte beachten Sie, dass am kommenden Wochenende Wartungsarbeiten an unseren Servern durchgeführt werden. In dieser Zeit wird es zu Unterbrechungen im Service kommen. Wir entschuldigen uns für die Unannehmlichkeiten.\n\nBeste Grüße,\nIhr Webmail Service-Team"
     },
     {
+      Gelesen: "1",
       Betreff: "Einladung zum Meeting",
       Sender: "hr@unternehmen.de",
       Vorschau: "Bitte bestätigen Sie Ihre Teilnahme an...",

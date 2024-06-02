@@ -10,6 +10,7 @@ import { DataService } from './contracts-api';
 export class ContractsComponent implements OnInit {
   contractId: string | null = null;
   contracts: any[] = [];
+  showAllContracts: boolean = false; // Variable zum Anzeigen aller Verträge
 
   constructor(private route: ActivatedRoute, private dataService: DataService) {}
 
@@ -24,5 +25,10 @@ export class ContractsComponent implements OnInit {
         });
       }
     });
+  }
+
+  // Methode zum Anzeigen aller Verträge
+  toggleAllContracts() {
+    this.showAllContracts = !this.showAllContracts;
   }
 }
