@@ -544,7 +544,6 @@ app.post('/get_contract', (req, res) => {
 // Route to get contract data for a specific asset
 app.post('/get_unique_contract', (req, res) => {
   const contract_id = req.body.id; // Extract id from the request body
-  const contract_id = req.body.id; // Extract id from the request body
 
   console.log("Contract ID is " + contract_id);
 
@@ -552,9 +551,6 @@ app.post('/get_unique_contract', (req, res) => {
   let foundContract = null;
   let foundAsset = null;
 
-  // Find the contract with the given ID
-  let foundContract = null;
-  let foundAsset = null;
 
   // Iterate over the values of the contracts object
   for (const contractsArray of Object.values(contracts)) {
@@ -569,7 +565,6 @@ app.post('/get_unique_contract', (req, res) => {
         break;
       }
     }
-    if (foundContract && foundAsset) {
     if (foundContract && foundAsset) {
       break;
     }
