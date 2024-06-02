@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './contracts-api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contracts',
@@ -9,7 +10,7 @@ import { DataService } from './contracts-api';
 export class ContractsComponent implements OnInit {
   contracts: any[] = [];
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService, private router: Router ) {}
 
   ngOnInit() {
     // Entferne die Überprüfung auf this.contractId, da wir alle Verträge anzeigen möchten
@@ -27,5 +28,9 @@ export class ContractsComponent implements OnInit {
     }, error => {
       console.error('Error fetching contracts', error);
     });
+  }
+
+  navigateToMsges() {
+    this.router.navigate(['/messages']);
   }
 }

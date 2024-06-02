@@ -47,3 +47,46 @@
 .btn-primary:hover {
   background-color: #0056b3;
 }
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ensure space between buttons */
+  margin-bottom: 5px; /* Reduce bottom margin */
+  height: 25px; /* Adjust button height */
+}
+
+.button-container .btn:first-child {
+  margin-right: auto; /* Push first button to the far left */
+}
+
+.button-container .btn:last-child {
+  margin-left: auto; /* Push last button to the far right */
+}
+
+.align-right {
+  display: flex;
+  justify-content: flex-end; /* Align children to the right */
+}
+
+
+.link-prop {
+  text-decoration: underline;
+  color: blue;
+}
+
+.full {
+  width: 100%;
+}
+
+.button-container .btn .fa-floppy-disk, 
+.button-container .btn .fa-envelope,
+.button-container .btn .fa-eye {
+  font-size: 1.5em; /* Adjust size as needed */
+  color: #ee0000 ; /* Adjust color as needed */
+}
+
+.button-container .btn:hover .fa-floppy-disk, 
+.button-container .btn:hover .fa-envelope{
+  color: #9e0000; /* Adjust hover color as needed */
+}
