@@ -34,11 +34,16 @@
   flex-grow: 1;
 }
 
+.full-width {
+  width: 100%; /* Die volle Breite des Containers */
+}
+
 .assets-title {
   text-align: center;
 }
 
 .card {
+  margin-bottom: 20px;
   border-radius: 20px;
   box-shadow: 0;
   cursor: pointer;
@@ -46,12 +51,16 @@
 
 .card-body .d-flex {
   display: flex;
-  justify-content: space-between;
+  
+}
+
+card-body {
+  display: flex;
+  flex-direction: column; /* Anordnung der Elemente in einer Spalte */
 }
 
 .image-container {
-  display: flex;
-  align-items: center;
+  flex-grow: 1; /* Das Bildcontainer-Div dehnt sich aus, um den verfügbaren Platz zu füllen */
   margin-right: 15px;
 }
 

@@ -445,7 +445,7 @@ function getContract(id) {
 
 const leasingAssets = [
   {
-    id: 5472,
+    id: 1,
     objektartBezeichnung: 'Parkhaus',
     strasse: 'Froschgasse 93',
     plz: '58912',
@@ -458,7 +458,7 @@ const leasingAssets = [
     vertraege: getContract(1),
   },
   {
-    id: 6160,
+    id: 2,
     objektartBezeichnung: 'Lagerhalle',
     strasse: 'Weingasse 11',
     plz: '58911',
@@ -471,7 +471,7 @@ const leasingAssets = [
     vertraege: getContract(2),
   },
   {
-    id: 7845,
+    id: 3,
     objektartBezeichnung: 'Lagerhalle',
     strasse: 'Froschgasse 78',
     plz: '58912',
@@ -484,7 +484,7 @@ const leasingAssets = [
     vertraege: getContract(3),
   },
   {
-    id: 9017,
+    id: 4,
     objektartBezeichnung: 'Lagerhalle',
     strasse: 'Weingasse 11',
     plz: '58911',
@@ -497,7 +497,7 @@ const leasingAssets = [
     vertraege: getContract(4),
   },
   {
-    id: 8542,
+    id: 5,
     objektartBezeichnung: 'Produktionsgebäude',
     strasse: 'Froschgasse 85',
     plz: '58912',
@@ -510,7 +510,7 @@ const leasingAssets = [
     vertraege: getContract(5),
   },
   {
-    id: 5509,
+    id: 6,
     objektartBezeichnung: 'Sondergebäude',
     strasse: 'Weingasse 13',
     plz: '58911',
@@ -544,8 +544,13 @@ app.post('/get_contract', (req, res) => {
 // Route to get contract data for a specific asset
 app.post('/get_unique_contract', (req, res) => {
   const contract_id = req.body.id; // Extract id from the request body
+  const contract_id = req.body.id; // Extract id from the request body
 
   console.log("Contract ID is " + contract_id);
+
+  // Find the contract with the given ID
+  let foundContract = null;
+  let foundAsset = null;
 
   // Find the contract with the given ID
   let foundContract = null;
@@ -557,7 +562,7 @@ app.post('/get_unique_contract', (req, res) => {
     for (const contract of contractsArray) {
       if (contract.id === contract_id) {
         foundContract = contract;
-        foundAsset = leasingAssets.find(asset => String(asset.id) === contract.assetId);
+        foundAsset = leasingAssets.find(asset => String(asset.id) === String(contract.assetId));
         console.log("Found contract and asset");
         console.log(foundContract);
         console.log(foundAsset);
@@ -565,10 +570,19 @@ app.post('/get_unique_contract', (req, res) => {
       }
     }
     if (foundContract && foundAsset) {
+    if (foundContract && foundAsset) {
       break;
     }
   }
 
+  if (foundContract && foundAsset) {
+    const response = { contract: foundContract, asset: foundAsset };
+    console.log("End response");
+    console.log(response);
+    res.json(response);
+  } else {
+    res.status(404).json({ error: 'Contract or asset not found' });
+  }
   if (foundContract && foundAsset) {
     const response = { contract: foundContract, asset: foundAsset };
     console.log("End response");
