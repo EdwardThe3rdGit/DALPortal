@@ -1,27 +1,45 @@
-<div>
-  <div class="card mb-4" >
+<div class="container">
+  <div class="card mb-4 full-width" >
     <div class="card-body">
+      <div>
+        <h3><strong class="label">Leasingobjekt:</strong></h3>
+      </div>
+      <hr>
       <div class="d-flex mb-2">
         <div class="image-container">
           <img src="{{ asset.imageUrl }}" alt="Asset Image">
         </div>
         
         <div>
-          <div class="d-flex mb-2">
-            <strong class="label">Standort:</strong>
-            <p class="mb-0 value">{{ asset.standort }}</p>
-          </div>
-          <div class="d-flex mb-2">
-            <strong class="label">Leasingobjekt:</strong>
-            <p class="mb-0 value">{{ asset.leasingobjekt }}</p>
-          </div>
-          <div class="d-flex mb-2">
-            <strong class="label">Leasinggeber:</strong>
-            <p class="mb-0 value">{{ asset.leasinggeber }}</p>
-          </div>
-          <div class="d-flex mb-2">
-            <strong class="label">Leasingnehmer:</strong>
-            <p class="mb-0 value">{{ asset.leasingnehmer }}</p>
+          <div>
+            <div class="d-flex mb-2">
+              <strong class="label">Standort:</strong>
+              <p class="mb-0 value">{{ asset.id }}</p>
+            </div>
+            <div class="d-flex mb-2">
+              <strong class="label">Objektart:</strong>
+              <p class="mb-0 value">{{ asset.objektartBezeichnung }}</p>
+            </div>
+            <div class="d-flex mb-2">
+              <strong class="label">Standort:</strong>
+              <p class="mb-0 value">{{ asset.strasse }}, {{ asset.plz }} {{ asset.ort }}</p>
+            </div>
+            <div class="d-flex mb-2">
+              <strong class="label">Zustand:</strong>
+              <p class="mb-0 value">{{ asset.zustand }}</p>
+            </div>
+            <div class="d-flex mb-2">
+              <strong class="label">Objekterrichtung:</strong>
+              <p class="mb-0 value">{{ asset.objekterrichtung }}</p>
+            </div>
+            <div class="d-flex mb-2">
+              <strong class="label">Grundstücksart:</strong>
+              <p class="mb-0 value">{{ asset.grundstuecksart }}</p>
+            </div>
+            <div class="d-flex mb-2">
+              <strong class="label">Untermieter:</strong>
+              <p class="mb-0 value">{{ asset.untermieter }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -32,6 +50,7 @@
         </button>
       </div>
       
+      
     </div>
   </div>
   <div class="card">
@@ -39,7 +58,7 @@
       <!-- Verträge information -->
       <div>
         <div>
-          <strong class="label">Vertrag:</strong>
+          <h5><strong class="label">Vertrag:</strong></h5>
         </div>
         
         <hr>
@@ -94,33 +113,57 @@
     </div>
     
     <br>
+    
+    
+</div>
 
-    <div *ngFor="let rechnung of contract.rechnungen">
+<div *ngFor="let rechnung of contract.rechnungen">
+  <hr>
+<div class="card">
+  <div class="card-body">
+    <!-- Verträge information -->
+    <div>
+      <div>
+        <h5><strong class="label">Rechnung:</strong></h5>
+      </div>
+      
       <hr>
+      <div class="button-container">
+        <a href="../pdfs/Leasingvertrag_Test.pdf" download>
+          <button class="btn link-prop">
+            <i class="fa-regular fa-floppy-disk"></i>
+          </button>
+        </a>
+        <button class="btn link-prop" (click)="navigateToMsges()">
+          <i class="fas fa-envelope"></i>
+        </button>
+      </div>
       <br>
       <div class="d-flex mb-2">
         <div class="card mb-4 full">
           <div class="card-body">
             <div class="d-flex mb-2">
-              <p class="card-text">Rechnungsnumer:</p>
+              <p class="card-text">Rechnungsnummer:</p>
               <p class="mb-0 value">{{ rechnung.rechnungsnummer }}</p>
             </div>
             <div class="d-flex mb-2">
-              <p class="card-text">Rechnungsdatum :</p>
-              <p class="mb-0 value">{{ contract.rechnungsdatum  }}</p>
+              <p class="card-text">Rechnungsdatum:</p>
+              <p class="mb-0 value">{{ rechnung.rechnungsdatum }}</p>
             </div>
             <div class="d-flex mb-2">
               <p class="card-text">Betrag:</p>
-              <p class="mb-0 value">{{ contract.betrag }}</p>
+              <p class="mb-0 value">{{ rechnung.betrag }}€</p>
             </div>
             <div class="d-flex mb-2">
               <p class="card-text">Status:</p>
-              <p class="mb-0 value">{{ contract.status }}</p>
+              <p class="mb-0 value">{{ rechnung.status }}</p>
             </div>
-          </div>
+          
         </div>
       </div>
-    
-      <!-- Add more vertrag information here if needed -->
+  
     </div>
+    <br>
+  </div>
+</div>
 </div>
