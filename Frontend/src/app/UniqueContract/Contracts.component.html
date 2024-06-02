@@ -10,6 +10,36 @@
         <p class="card-text">Laufzeit: {{ contract.laufzeit }}</p>
         <p class="card-text">GIK: {{ contract.gik }}</p>
         <p class="card-text">Abschlussgebühr: {{ contract.abschlussgebuehr }}</p>
+
+        <div *ngFor="let rechnung of contract.rechnungen">
+          <hr>
+          <br>
+          <div class="d-flex mb-2">
+            <div class="card mb-4 full">
+              <div class="card-body">
+                <div class="d-flex mb-2">
+                  <p class="card-text">Rechnungsnumer:</p>
+                  <p class="mb-0 value">{{ rechnung.rechnungsnummer }}</p>
+                </div>
+                <div class="d-flex mb-2">
+                  <p class="card-text">Rechnungsdatum :</p>
+                  <p class="mb-0 value">{{ contract.rechnungsdatum  }}</p>
+                </div>
+                <div class="d-flex mb-2">
+                  <p class="card-text">Betrag:</p>
+                  <p class="mb-0 value">{{ contract.betrag }}</p>
+                </div>
+                <div class="d-flex mb-2">
+                  <p class="card-text">Status:</p>
+                  <p class="mb-0 value">{{ contract.status }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <!-- Add more vertrag information here if needed -->
+        </div>
+
       </div>
     </div>
   </div>

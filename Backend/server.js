@@ -15,33 +15,75 @@ const contracts = {
       assetId: '1',
       abschlussdatum: '31.12.2022',
       mietbeginn: '01.01.2020',
-      endabrechnung: '68.01.2055',
+      endabrechnung: '28.01.2055',
       zinskonversion: '31.12.2022',
       laufzeit: '234 Monate',
       gesamtinvestition: '10000',
       abschlussgebuehr: '654',
+      rechnungen : 
+      [
+          {
+            rechnungsnummer : '45871',
+            rechnungsdatum : '02.01.2024',
+            betrag: '1910.60',
+            status: 'offen',
+            vertrag_ID : 1,
+          },
+          {
+            rechnungsnummer : '98652',
+            rechnungsdatum : '12.02.2024',
+            betrag: '73.90',
+            status: 'beglichen',
+            vertrag_ID : 1,
+          },
+          {
+            rechnungsnummer : '89124',
+            rechnungsdatum : '14.02.2024',
+            betrag: '50.40',
+            status: 'beglichen',
+            vertrag_ID : 1,
+          }
+        ]
     },
     {
       id: '2',
       assetId: '1',
       abschlussdatum: '31.12.2023',
       mietbeginn: '01.01.2021',
-      endabrechnung: '68.01.2056',
+      endabrechnung: '28.01.2056',
       zinskonversion: '31.12.2023',
       laufzeit: '240 Monate',
       gesamtinvestition: '12000',
       abschlussgebuehr: '800',
+      rechnungen: [
+        {
+          rechnungsnummer : '45812',
+          rechnungsdatum : '01.03.2024',
+          betrag: '214438.00',
+          status: 'offen',
+          vertrag_ID : 2,
+        }
+      ]
     },
     {
       id: '3',
       assetId: '1',
       abschlussdatum: '31.12.2024',
       mietbeginn: '01.01.2022',
-      endabrechnung: '68.01.2057',
+      endabrechnung: '28.01.2057',
       zinskonversion: '31.12.2024',
       laufzeit: '246 Monate',
       gesamtinvestition: '15000',
       abschlussgebuehr: '1000',
+      rechnungen: [
+        {
+          rechnungsnummer : '94283',
+          rechnungsdatum : '01.03.2024',
+          betrag: '190638.00',
+          status: 'offen',
+          vertrag_ID : 3,
+        }
+      ]
     },
   ],
   2: [
@@ -50,22 +92,47 @@ const contracts = {
       assetId: '2',
       abschlussdatum: '31.12.2022',
       mietbeginn: '01.01.2020',
-      endabrechnung: '68.01.2055',
+      endabrechnung: '28.01.2055',
       zinskonversion: '31.12.2022',
       laufzeit: '234 Monate',
       gesamtinvestition: '10000',
       abschlussgebuehr: '654',
+      rechnungen: [
+        {
+          rechnungsnummer : '77412',
+          rechnungsdatum : '01.06.2024',
+          betrag: '192185.00',
+          status: 'offen',
+          vertrag_ID : 4,
+        },
+        {
+          rechnungsnummer : '66842',
+          rechnungsdatum : '01.03.2024',
+          betrag: '12495.00',
+          status: 'offen',
+          vertrag_ID : 4,
+        }
+      ]
     },
     {
       id: '5',
       assetId: '2',
       abschlussdatum: '31.12.2023',
       mietbeginn: '01.01.2021',
-      endabrechnung: '68.01.2056',
+      endabrechnung: '28.01.2056',
       zinskonversion: '31.12.2023',
       laufzeit: '240 Monate',
       gesamtinvestition: '12000',
       abschlussgebuehr: '800',
+      rechnungen: [
+        {
+          rechnungsnummer : '22661',
+          rechnungsdatum : '01.03.2024',
+          betrag: '1785.00',
+          status: 'offen',
+          vertrag_ID : 5,
+        },
+      ]
     },
     {
       id: '6',
