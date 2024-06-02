@@ -6,7 +6,7 @@ const app = express(); // Create an instance of the express application
 app.use(cors()); // Enable CORS policy for all routes
 app.use(express.json()); // Middleware to parse JSON request bodies
 
-// Dummy data for contracts
+
 // Dummy data for contracts
 const contracts = {
   1: [
@@ -91,7 +91,7 @@ const contracts = {
     },
   ],
   3: [
-    {
+    /* {
       id: '8',
       assetId: '3',
       abschlussdatum: '31.12.2022',
@@ -112,7 +112,7 @@ const contracts = {
       laufzeit: '240 Monate',
       gesamtinvestition: '12000',
       abschlussgebuehr: '800',
-    },
+    }, */
   ],
   4: [
     {
@@ -398,83 +398,97 @@ app.get("/get_assets", (req, res) => {
   console.log("Made connection to /assets (Server)");
   const leasingAssets = [
     {
-      id: 5472,
-      objektartBezeichnung: 'Parkhaus',
-      strasse: 'Froschgasse 93',
-      plz: '58912',
-      ort: 'Bierstadt',
-      zustand: 'Neubau',
-      objekterrichtung: 'Sale and lease back',
-      grundstuecksart: 'Kauf',
-      untermieter: 'Nein',
+      id: 1,
+      standort: 'Berlin',
+      leasingobjekt: 'Car',
+      leasinggeber: 'Company A',
+      leasingnehmer: 'John Doe',
       imageUrl: 'https://media.gettyimages.com/id/128502214/de/foto/classic-turn-of-the-century-american-house.jpg?s=612x612&w=gi&k=20&c=d4GVWJ7ehp10xUREyj0787VvZ1Aedxts9ZNSMiuL0_Y=',
       vertraege: getContract(1),
+
     },
     {
-      id: 6160,
-      objektartBezeichnung: 'Lagerhalle',
-      strasse: 'Weingasse 11',
-      plz: '58911',
-      ort: 'Hasstadt',
-      zustand: 'Neubau',
-      objekterrichtung: 'Projektmanagement',
-      grundstuecksart: 'Erbbaurecht',
-      untermieter: 'Nein',
+      id: 2,
+      standort: 'Berlin',
+      leasingobjekt: 'Car',
+      leasinggeber: 'Company A',
+      leasingnehmer: 'John Doe',
       imageUrl: 'https://www.wilsonhomes.com.au/sites/default/files/styles/blog_hero_banner/public/My%20project%20-%202023-06-20T095818.329%20%281%29_0.jpg?itok=UbtVbhT0',
       vertraege: getContract(2),
+
     },
     {
-      id: 7845,
-      objektartBezeichnung: 'Lagerhalle',
-      strasse: 'Froschgasse 78',
-      plz: '58912',
-      ort: 'Bierstadt',
-      zustand: 'Neubau',
-      objekterrichtung: 'Sale and lease back',
-      grundstuecksart: 'Kauf',
-      untermieter: 'Ja',
+      id: 3,
+      standort: 'Berlin',
+      leasingobjekt: 'Car',
+      leasinggeber: 'Company A',
+      leasingnehmer: 'John Doe',
       imageUrl: 'https://cdna.artstation.com/p/assets/images/images/045/535/208/large/eugene-caubel-haussmann-concept.jpg?1642963048',
       vertraege: getContract(3),
+
     },
+
     {
-      id: 9017,
-      objektartBezeichnung: 'Lagerhalle',
-      strasse: 'Weingasse 11',
-      plz: '58911',
-      ort: 'Hasstadt',
-      zustand: 'Neubau',
-      objekterrichtung: 'Projektmanagement',
-      grundstuecksart: 'Erbbaurecht',
-      untermieter: 'Nein',
+      id: 4,
+      standort: 'Berlin',
+      leasingobjekt: 'Car',
+      leasinggeber: 'Company A',
+      leasingnehmer: 'John Doe',
       imageUrl: 'https://butterflymx.com/wp-content/uploads/2022/07/asset-management-vs-property-management.jpg',
       vertraege: getContract(4),
+
     },
     {
-      id: 8542,
-      objektartBezeichnung: 'Produktionsgebäude',
-      strasse: 'Froschgasse 85',
-      plz: '58912',
-      ort: 'Bierstadt',
-      zustand: 'Neubau',
-      objekterrichtung: 'Sale and lease back',
-      grundstuecksart: 'Kauf',
-      untermieter: 'Ja',
+      id: 5,
+      standort: 'Berlin',
+      leasingobjekt: 'Car',
+      leasinggeber: 'Company A',
+      leasingnehmer: 'John Doe',
       imageUrl: 'https://d1y8sb8igg2f8e.cloudfront.net/images/Hey_Congress_No_Time_to_Leave_the_Dance_Floor_.width-600.jpg',
       vertraege: getContract(5),
+
     },
     {
-      id: 5509,
-      objektartBezeichnung: 'Sondergebäude',
-      strasse: 'Weingasse 13',
-      plz: '58911',
-      ort: 'Hasstadt',
-      zustand: 'Neubau',
-      objekterrichtung: 'Projektmanagement',
-      grundstuecksart: 'Erbbaurecht',
-      untermieter: 'Nein',
-      imageUrl: 'https://media.gettyimages.com/id/128502214/de/foto/classic-turn-of-the-century-american-house.jpg?s=612x612&w=gi&k=20&c=d4GVWJ7ehp10xUREyj0787VvZ1Aedxts9ZNSMiuL0_Y=',
+      id: 6,
+      standort: 'Berlin',
+      leasingobjekt: 'Car',
+      leasinggeber: 'Company A',
+      leasingnehmer: 'John Doe',
+      imageUrl: 'https://cdn1.vogel.de/blLu-w9zy244Zp6RW5E6AjazJeU=/fit-in/800x0/p7i.vogel.de/wcms/26/9a/269a43221f58018f0bcabfb125f74cb4/0109208144.jpeg',
       vertraege: getContract(6),
+      
     },
+    {
+      id: 7,
+      standort: 'Berlin',
+      leasingobjekt: 'Car',
+      leasinggeber: 'Company A',
+      leasingnehmer: 'John Doe',
+      imageUrl: 'https://media.gettyimages.com/id/128502214/de/foto/classic-turn-of-the-century-american-house.jpg?s=612x612&w=gi&k=20&c=d4GVWJ7ehp10xUREyj0787VvZ1Aedxts9ZNSMiuL0_Y=',
+      vertraege: getContract(7),
+
+    },
+    {
+      id: 8,
+      standort: 'Berlin',
+      leasingobjekt: 'Car',
+      leasinggeber: 'Company A',
+      leasingnehmer: 'John Doe',
+      imageUrl: 'https://www.wilsonhomes.com.au/sites/default/files/styles/blog_hero_banner/public/My%20project%20-%202023-06-20T095818.329%20%281%29_0.jpg?itok=UbtVbhT0',
+      vertraege: getContract(8),
+
+    },
+    {
+      id: 9,
+      standort: 'Berlin',
+      leasingobjekt: 'Car',
+      leasinggeber: 'Company A',
+      leasingnehmer: 'John Doe',
+      imageUrl: 'https://media.gettyimages.com/id/128502214/de/foto/classic-turn-of-the-century-american-house.jpg?s=612x612&w=gi&k=20&c=d4GVWJ7ehp10xUREyj0787VvZ1Aedxts9ZNSMiuL0_Y=',
+      vertraege: getContract(9),
+      
+    },
+    // More assets
   ];
 
   res.json(leasingAssets);

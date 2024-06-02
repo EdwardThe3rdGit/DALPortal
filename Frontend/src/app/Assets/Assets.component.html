@@ -63,10 +63,13 @@
           <div class="card-body">
             <!-- Verträge information -->
             <div *ngFor="let contract of asset.vertraege">
-              <strong class="label">Vertrag:</strong>
+              <div (click)="navigateToUniqueContract(contract.id)">
+                <strong class="label">Vertrag:</strong>
+              </div>
+              
               <hr>
               <div class="button-container">
-                <a href="../pdfs/Muster_Grundstueckskaufvertrag.pdf" download>
+                <a href="../pdfs/Leasingvertrag_Test.pdf" download>
                   <button class="btn link-prop">
                     <i class="fa-regular fa-floppy-disk"></i>
                   </button>

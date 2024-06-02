@@ -37,6 +37,11 @@ export class AssetsComponent implements OnInit {
   navigateToContract(assetId: number) {
     this.router.navigate(['/contracts', assetId]);
   }
+
+  navigateToUniqueContract(contractId: number) {
+    this.router.navigate(['/contract', { contract_id: contractId }]);
+  }
+  
   navigateToMsges() {
     this.router.navigate(['/messages']);
   }

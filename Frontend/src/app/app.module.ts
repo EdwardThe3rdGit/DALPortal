@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { AssetsComponent } from './Assets/Assets.component';
 import { MessagesComponent } from './Messages/Messages.component';
 import { ContractsComponent } from './Contracts/Contracts.component';
+import { ContractComponent } from './UniqueContract/Contracts.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ContractsComponent } from './Contracts/Contracts.component';
     MessagesComponent,
     AssetsComponent,
     ContractsComponent,
+    ContractComponent
   ],
   imports: [BrowserModule, AppRoutingModule, CommonModule, HttpClientModule],
   providers: [],
