@@ -2,14 +2,15 @@
   <div class="col-md-12" *ngFor="let contract of contracts">
     <div class="card mb-3">
       <div class="card-body">
-        <h5 class="card-title">Contract ID: {{ contract.contractId }}</h5>
-        <p class="card-text">Vertragsabschlussdatum: {{ contract.vertragsabschlussdatum }}</p>
+        <h5 class="card-title">Contract ID: {{ contract.id }}</h5>
+        <p class="card-text">Leasingsobjektgesellschaft: {{ contract.leasingobjektgesellschaft }}</p>
         <p class="card-text">Mietbeginn: {{ contract.mietbeginn }}</p>
-        <p class="card-text">Endabrechnung: {{ contract.endabrechnung }}</p>
-        <p class="card-text">Zinskonversion: {{ contract.zinskonversion }}</p>
         <p class="card-text">Laufzeit: {{ contract.laufzeit }}</p>
-        <p class="card-text">GIK: {{ contract.gik }}</p>
-        <p class="card-text">Abschlussgebühr: {{ contract.abschlussgebuehr }}</p>
+        <p class="card-text">Mitende: {{ contract.mietende }}</p>
+        <p class="card-text">Zahlungsrhytmus: {{ contract.zahlungsrhythmus }}</p>
+        <p class="card-text">Zahlungsweise: {{ contract.zahlungsweise }}</p>
+        <p class="card-text">Gesamtinvestitionen: {{ contract.gesamtinvestitionskosten }}</p>
+        <p class="card-text">Lastschrifteinzug {{ contract.lastschrifteinzug }}</p>
       </div>
     </div>
   </div>
