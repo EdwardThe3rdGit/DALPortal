@@ -11,19 +11,39 @@
             <div>
               <div class="d-flex mb-2">
                 <strong class="label">Standort:</strong>
-                <p class="mb-0 value">{{ asset.standort }}</p>
+                <p class="mb-0 value">{{ asset.id }}</p>
               </div>
               <div class="d-flex mb-2">
-                <strong class="label">Leasingobjekt:</strong>
-                <p class="mb-0 value">{{ asset.leasingobjekt }}</p>
+                <strong class="label">Objektart:</strong>
+                <p class="mb-0 value">{{ asset.objektartBezeichnung }}</p>
               </div>
               <div class="d-flex mb-2">
-                <strong class="label">Leasinggeber:</strong>
-                <p class="mb-0 value">{{ asset.leasinggeber }}</p>
+                <strong class="label">Straße:</strong>
+                <p class="mb-0 value">{{ asset.strasse }}</p>
               </div>
               <div class="d-flex mb-2">
-                <strong class="label">Leasingnehmer:</strong>
-                <p class="mb-0 value">{{ asset.leasingnehmer }}</p>
+                <strong class="label">PLZ:</strong>
+                <p class="mb-0 value">{{ asset.plz }}</p>
+              </div>
+              <div class="d-flex mb-2">
+                <strong class="label">Ort:</strong>
+                <p class="mb-0 value">{{ asset.ort }}</p>
+              </div>
+              <div class="d-flex mb-2">
+                <strong class="label">Zustand:</strong>
+                <p class="mb-0 value">{{ asset.zustand }}</p>
+              </div>
+              <div class="d-flex mb-2">
+                <strong class="label">Objekterrichtung:</strong>
+                <p class="mb-0 value">{{ asset.objekterrichtung }}</p>
+              </div>
+              <div class="d-flex mb-2">
+                <strong class="label">Grundstücksart:</strong>
+                <p class="mb-0 value">{{ asset.grundstuecksart }}</p>
+              </div>
+              <div class="d-flex mb-2">
+                <strong class="label">Untermieter:</strong>
+                <p class="mb-0 value">{{ asset.untermieter }}</p>
               </div>
             </div>
           </div>
@@ -43,10 +63,13 @@
           <div class="card-body">
             <!-- Verträge information -->
             <div *ngFor="let contract of asset.vertraege">
-              <strong class="label">Vertrag:</strong>
+              <div (click)="navigateToUniqueContract(contract.id)">
+                <strong class="label">Vertrag:</strong>
+              </div>
+              
               <hr>
               <div class="button-container">
-                <a href="../pdfs/Muster_Grundstueckskaufvertrag.pdf" download>
+                <a href="../pdfs/Leasingvertrag_Test.pdf" download>
                   <button class="btn link-prop">
                     <i class="fa-regular fa-floppy-disk"></i>
                   </button>

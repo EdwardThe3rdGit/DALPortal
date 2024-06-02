@@ -6,7 +6,7 @@ const app = express(); // Create an instance of the express application
 app.use(cors()); // Enable CORS policy for all routes
 app.use(express.json()); // Middleware to parse JSON request bodies
 
-// Dummy data for contracts
+
 // Dummy data for contracts
 const contracts = {
   1: [
@@ -91,7 +91,7 @@ const contracts = {
     },
   ],
   3: [
-    {
+    /* {
       id: '8',
       assetId: '3',
       abschlussdatum: '31.12.2022',
@@ -112,7 +112,7 @@ const contracts = {
       laufzeit: '240 Monate',
       gesamtinvestition: '12000',
       abschlussgebuehr: '800',
-    },
+    }, */
   ],
   4: [
     {

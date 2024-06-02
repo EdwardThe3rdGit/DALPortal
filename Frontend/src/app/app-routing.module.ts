@@ -6,6 +6,7 @@ import { MessagesComponent } from './Messages/Messages.component';
 import { AssetsComponent } from './Assets/Assets.component';
 import { AuthGuard } from '../app/auth.guard';
 import { ContractsComponent } from './Contracts/Contracts.component';
+import { ContractComponent } from './UniqueContract/Contracts.component';
 import { VertragsComponent } from './Verträge/Verträge.component';
 
 const routes: Routes = [
@@ -34,7 +35,12 @@ const routes: Routes = [
   {
     path: 'contracts/:id',
     component: ContractsComponent,
-  }
+  },
+  {
+    path: 'contract',
+    component: ContractComponent,
+  },
+
 ];
 
 @NgModule({
