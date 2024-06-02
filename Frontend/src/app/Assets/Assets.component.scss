@@ -94,3 +94,14 @@
 .full {
   width: 100%;
 }
+
+.button-container .btn .fa-floppy-disk, 
+.button-container .btn .fa-envelope {
+  font-size: 1.5em; /* Adjust size as needed */
+  color: #ee0000 ; /* Adjust color as needed */
+}
+
+.button-container .btn:hover .fa-floppy-disk, 
+.button-container .btn:hover .fa-envelope{
+  color: #9e0000; /* Adjust hover color as needed */
+}

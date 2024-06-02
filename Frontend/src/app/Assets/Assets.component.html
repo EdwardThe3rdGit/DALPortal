@@ -29,9 +29,11 @@
           </div>
           <hr>
           <div class="button-container">
-            <button class="btn" (click)="toggleCollapse(asset.id)">&#10551; Verträge</button>
+            <button class="btn" (click)="toggleCollapse(asset.id)" style="background-color: #ee0000; color: #ffffff;">&#10551; Verträge</button>
 
-            <button class="btn link-prop" (click)="navigateToMsges()">Schnellnachricht</button>
+            <button class="btn link-prop" (click)="navigateToMsges()">
+              <i class="fas fa-envelope"></i>
+            </button>
           </div>
           
         </div>
@@ -44,8 +46,14 @@
               <strong class="label">Vertrag:</strong>
               <hr>
               <div class="button-container">
-                <a href="../pdfs/Muster_Grundstueckskaufvertrag.pdf" download><button class="btn link-prop">Download</button></a>
-                <button class="btn link-prop" (click)="navigateToMsges()">Schnellnachricht</button>
+                <a href="../pdfs/Muster_Grundstueckskaufvertrag.pdf" download>
+                  <button class="btn link-prop">
+                    <i class="fa-regular fa-floppy-disk"></i>
+                  </button>
+                </a>
+                <button class="btn link-prop" (click)="navigateToMsges()">
+                  <i class="fas fa-envelope"></i>
+                </button>
               </div>
               <br>
               <div class="d-flex mb-2">
