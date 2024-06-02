@@ -1,0 +1,20 @@
+<div class="row" *ngIf="contracts.length > 0; else noContracts">
+  <div class="col-md-12" *ngFor="let contract of contracts">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Contract ID: {{ contract.contractId }}</h5>
+        <p class="card-text">Vertragsabschlussdatum: {{ contract.vertragsabschlussdatum }}</p>
+        <p class="card-text">Mietbeginn: {{ contract.mietbeginn }}</p>
+        <p class="card-text">Endabrechnung: {{ contract.endabrechnung }}</p>
+        <p class="card-text">Zinskonversion: {{ contract.zinskonversion }}</p>
+        <p class="card-text">Laufzeit: {{ contract.laufzeit }}</p>
+        <p class="card-text">GIK: {{ contract.gik }}</p>
+        <p class="card-text">Abschlussgebühr: {{ contract.abschlussgebuehr }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noContracts>
+  <p>No contracts found.</p>
+</ng-template>

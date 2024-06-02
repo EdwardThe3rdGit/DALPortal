@@ -6,7 +6,7 @@ const app = express(); // Create an instance of the express application
 app.use(cors()); // Enable CORS policy for all routes
 app.use(express.json()); // Middleware to parse JSON request bodies
 
-// Dummy data for contracts
+
 // Dummy data for contracts
 const contracts = {
   1: [
@@ -91,7 +91,7 @@ const contracts = {
     },
   ],
   3: [
-    {
+    /* {
       id: '8',
       assetId: '3',
       abschlussdatum: '31.12.2022',
@@ -112,7 +112,7 @@ const contracts = {
       laufzeit: '240 Monate',
       gesamtinvestition: '12000',
       abschlussgebuehr: '800',
-    },
+    }, */
   ],
   4: [
     {
@@ -376,6 +376,102 @@ function getContract(id) {
   }
 }
 
+// Dummy data for assets
+const leasingAssets = [
+  {
+    id: 1,
+    standort: 'Berlin',
+    leasingobjekt: 'Car',
+    leasinggeber: 'Company A',
+    leasingnehmer: 'John Doe',
+    imageUrl: 'https://media.gettyimages.com/id/128502214/de/foto/classic-turn-of-the-century-american-house.jpg?s=612x612&w=gi&k=20&c=d4GVWJ7ehp10xUREyj0787VvZ1Aedxts9ZNSMiuL0_Y=',
+    vertraege: getContract(1),
+
+  },
+  {
+    id: 2,
+    standort: 'Berlin',
+    leasingobjekt: 'Car',
+    leasinggeber: 'Company A',
+    leasingnehmer: 'John Doe',
+    imageUrl: 'https://www.wilsonhomes.com.au/sites/default/files/styles/blog_hero_banner/public/My%20project%20-%202023-06-20T095818.329%20%281%29_0.jpg?itok=UbtVbhT0',
+    vertraege: getContract(2),
+
+  },
+  {
+    id: 3,
+    standort: 'Berlin',
+    leasingobjekt: 'Car',
+    leasinggeber: 'Company A',
+    leasingnehmer: 'John Doe',
+    imageUrl: 'https://cdna.artstation.com/p/assets/images/images/045/535/208/large/eugene-caubel-haussmann-concept.jpg?1642963048',
+    vertraege: getContract(3),
+
+  },
+
+  {
+    id: 4,
+    standort: 'Berlin',
+    leasingobjekt: 'Car',
+    leasinggeber: 'Company A',
+    leasingnehmer: 'John Doe',
+    imageUrl: 'https://butterflymx.com/wp-content/uploads/2022/07/asset-management-vs-property-management.jpg',
+    vertraege: getContract(4),
+
+  },
+  {
+    id: 5,
+    standort: 'Berlin',
+    leasingobjekt: 'Car',
+    leasinggeber: 'Company A',
+    leasingnehmer: 'John Doe',
+    imageUrl: 'https://d1y8sb8igg2f8e.cloudfront.net/images/Hey_Congress_No_Time_to_Leave_the_Dance_Floor_.width-600.jpg',
+    vertraege: getContract(5),
+
+  },
+  {
+    id: 6,
+    standort: 'Berlin',
+    leasingobjekt: 'Car',
+    leasinggeber: 'Company A',
+    leasingnehmer: 'John Doe',
+    imageUrl: 'https://cdn1.vogel.de/blLu-w9zy244Zp6RW5E6AjazJeU=/fit-in/800x0/p7i.vogel.de/wcms/26/9a/269a43221f58018f0bcabfb125f74cb4/0109208144.jpeg',
+    vertraege: getContract(6),
+    
+  },
+  {
+    id: 7,
+    standort: 'Berlin',
+    leasingobjekt: 'Car',
+    leasinggeber: 'Company A',
+    leasingnehmer: 'John Doe',
+    imageUrl: 'https://media.gettyimages.com/id/128502214/de/foto/classic-turn-of-the-century-american-house.jpg?s=612x612&w=gi&k=20&c=d4GVWJ7ehp10xUREyj0787VvZ1Aedxts9ZNSMiuL0_Y=',
+    vertraege: getContract(7),
+
+  },
+  {
+    id: 8,
+    standort: 'Berlin',
+    leasingobjekt: 'Car',
+    leasinggeber: 'Company A',
+    leasingnehmer: 'John Doe',
+    imageUrl: 'https://www.wilsonhomes.com.au/sites/default/files/styles/blog_hero_banner/public/My%20project%20-%202023-06-20T095818.329%20%281%29_0.jpg?itok=UbtVbhT0',
+    vertraege: getContract(8),
+
+  },
+  {
+    id: 9,
+    standort: 'Berlin',
+    leasingobjekt: 'Car',
+    leasinggeber: 'Company A',
+    leasingnehmer: 'John Doe',
+    imageUrl: 'https://media.gettyimages.com/id/128502214/de/foto/classic-turn-of-the-century-american-house.jpg?s=612x612&w=gi&k=20&c=d4GVWJ7ehp10xUREyj0787VvZ1Aedxts9ZNSMiuL0_Y=',
+    vertraege: getContract(9),
+    
+  },
+  // More assets
+];
+
 // Route to get contract data for a specific asset
 app.post('/get_contract', (req, res) => {
   const { id } = req.body; // Extract id from the request body
@@ -393,103 +489,49 @@ app.post('/get_contract', (req, res) => {
   }
 });
 
+// Route to get contract data for a specific asset
+app.post('/get_unique_contract', (req, res) => {
+  console.log("Made connection to /get_unique_contract");
+  console.log(req);
+  console.log("Hello");
+  const { contract_id } = req.body; // Extract id from the request body
+  if (!contract_id) {
+    return res.status(400).json({ error: 'Contract ID is required' });
+  }
+
+  console.log("Contract ID is " + contract_id);
+  const generalArray = [];
+
+  // Iterate over the values of the contracts object
+  for (const contractsArray of Object.values(contracts)) {
+    // Iterate over each contract object in the current contractsArray
+    for (const contract of contractsArray) {
+      if (contract.id === contract_id) {
+        generalArray.push(contract);
+        break;
+      }
+    }
+  }
+
+  // Find the corresponding asset for the contract
+  for (const asset of leasingAssets) {
+    if (asset.id === generalArray[0].assetId) {
+      generalArray.push(asset);
+      break;
+    }
+  }
+
+  res.json(generalArray);
+});
+
+
+
+
+
 // Route to get all assets
 app.get("/get_assets", (req, res) => {
   console.log("Made connection to /assets (Server)");
-  const leasingAssets = [
-    {
-      id: 1,
-      standort: 'Berlin',
-      leasingobjekt: 'Car',
-      leasinggeber: 'Company A',
-      leasingnehmer: 'John Doe',
-      imageUrl: 'https://media.gettyimages.com/id/128502214/de/foto/classic-turn-of-the-century-american-house.jpg?s=612x612&w=gi&k=20&c=d4GVWJ7ehp10xUREyj0787VvZ1Aedxts9ZNSMiuL0_Y=',
-      vertraege: getContract(1),
-
-    },
-    {
-      id: 2,
-      standort: 'Berlin',
-      leasingobjekt: 'Car',
-      leasinggeber: 'Company A',
-      leasingnehmer: 'John Doe',
-      imageUrl: 'https://www.wilsonhomes.com.au/sites/default/files/styles/blog_hero_banner/public/My%20project%20-%202023-06-20T095818.329%20%281%29_0.jpg?itok=UbtVbhT0',
-      vertraege: getContract(2),
-
-    },
-    {
-      id: 3,
-      standort: 'Berlin',
-      leasingobjekt: 'Car',
-      leasinggeber: 'Company A',
-      leasingnehmer: 'John Doe',
-      imageUrl: 'https://cdna.artstation.com/p/assets/images/images/045/535/208/large/eugene-caubel-haussmann-concept.jpg?1642963048',
-      vertraege: getContract(3),
-
-    },
-
-    {
-      id: 4,
-      standort: 'Berlin',
-      leasingobjekt: 'Car',
-      leasinggeber: 'Company A',
-      leasingnehmer: 'John Doe',
-      imageUrl: 'https://butterflymx.com/wp-content/uploads/2022/07/asset-management-vs-property-management.jpg',
-      vertraege: getContract(4),
-
-    },
-    {
-      id: 5,
-      standort: 'Berlin',
-      leasingobjekt: 'Car',
-      leasinggeber: 'Company A',
-      leasingnehmer: 'John Doe',
-      imageUrl: 'https://d1y8sb8igg2f8e.cloudfront.net/images/Hey_Congress_No_Time_to_Leave_the_Dance_Floor_.width-600.jpg',
-      vertraege: getContract(5),
-
-    },
-    {
-      id: 6,
-      standort: 'Berlin',
-      leasingobjekt: 'Car',
-      leasinggeber: 'Company A',
-      leasingnehmer: 'John Doe',
-      imageUrl: 'https://cdn1.vogel.de/blLu-w9zy244Zp6RW5E6AjazJeU=/fit-in/800x0/p7i.vogel.de/wcms/26/9a/269a43221f58018f0bcabfb125f74cb4/0109208144.jpeg',
-      vertraege: getContract(6),
-      
-    },
-    {
-      id: 7,
-      standort: 'Berlin',
-      leasingobjekt: 'Car',
-      leasinggeber: 'Company A',
-      leasingnehmer: 'John Doe',
-      imageUrl: 'https://media.gettyimages.com/id/128502214/de/foto/classic-turn-of-the-century-american-house.jpg?s=612x612&w=gi&k=20&c=d4GVWJ7ehp10xUREyj0787VvZ1Aedxts9ZNSMiuL0_Y=',
-      vertraege: getContract(7),
-
-    },
-    {
-      id: 8,
-      standort: 'Berlin',
-      leasingobjekt: 'Car',
-      leasinggeber: 'Company A',
-      leasingnehmer: 'John Doe',
-      imageUrl: 'https://www.wilsonhomes.com.au/sites/default/files/styles/blog_hero_banner/public/My%20project%20-%202023-06-20T095818.329%20%281%29_0.jpg?itok=UbtVbhT0',
-      vertraege: getContract(8),
-
-    },
-    {
-      id: 9,
-      standort: 'Berlin',
-      leasingobjekt: 'Car',
-      leasinggeber: 'Company A',
-      leasingnehmer: 'John Doe',
-      imageUrl: 'https://media.gettyimages.com/id/128502214/de/foto/classic-turn-of-the-century-american-house.jpg?s=612x612&w=gi&k=20&c=d4GVWJ7ehp10xUREyj0787VvZ1Aedxts9ZNSMiuL0_Y=',
-      vertraege: getContract(9),
-      
-    },
-    // More assets
-  ];
+  
 
   res.json(leasingAssets);
 });
